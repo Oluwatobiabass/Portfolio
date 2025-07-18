@@ -1,82 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Projects & Contributions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio - Projects</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f7f9fc;
-      margin: 0;
-      padding: 2rem;
+    .embed-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 30px;
     }
-    h1 {
-      text-align: center;
-      color: #1a202c;
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 1rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .card img {
+    .embed-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      border-radius: 0.5rem;
-      object-fit: cover;
-      max-height: 180px;
+      height: 100%;
+      border: 0;
     }
-    .card h2 {
-      font-size: 1.25rem;
-      margin: 1rem 0 0.5rem;
-      color: #2d3748;
+    section {
+      padding: 20px;
+      background: #fff;
+      margin: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .card a {
-      margin-top: 1rem;
-      background: #3182ce;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .card a:hover {
-      background: #2b6cb0;
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #007bff;
     }
   </style>
 </head>
 <body>
-  <h1>My Projects & Contributions</h1>
-  <div class="project-grid">
-    <div class="card">
-      <img src="https://via.placeholder.com/400x200.png?text=Project+Slide+Deck" alt="Google Slides Thumbnail">
-      <h2>Slide Deck: Project Pitch</h2>
-      <a href="https://docs.google.com/presentation/d/e/2PACX-1vQwpcf8gGmeuZ0gFQS0AYUqkKmX3tke9u48ZuDVMMhtwi8Ae4alDmUIgdG0D0eccJ8lkdZuFARkwvdk/pub?start=false&loop=true&delayms=3000" target="_blank">View Live</a>
-    </div>
+  <header>
+    <h1>My Projects & Contributions</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="bio.html">Bio</a>
+      <a href="elevator.html">Elevator Pitch</a>
+      <a href="portfolio.html" class="active">Projects</a>
+    </nav>
+  </header>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/400x200.png?text=Pitch+Video" alt="Loom Video Thumbnail">
+  <main>
+    <section>
+      <h2>Project Presentation</h2>
+      <div class="embed-container">
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQwpcf8gGmeuZ0gFQS0AYUqkKmX3tke9u48ZuDVMMhtwi8Ae4alDmUIgdG0D0eccJ8lkdZuFARkwvdk/pubembed?start=false&loop=true&delayms=3000" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section>
       <h2>Pitch Video</h2>
-      <a href="https://www.loom.com/share/fa0db0365af6413188a8b3c6c2cf0d25" target="_blank">Watch on Loom</a>
-    </div>
+      <div class="embed-container">
+        <iframe src="https://www.loom.com/embed/fa0db0365af6413188a8b3c6c2cf0d25?sid=04b3e0a0-91c4-41e0-a64c-c97c7b61ac2d" allowfullscreen></iframe>
+      </div>
+    </section>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/400x200.png?text=Wireframe+Document" alt="Google Doc Thumbnail">
-      <h2>Wireframe Document</h2>
-      <a href="https://docs.google.com/document/d/e/2PACX-1vTgl5EWHKCoFvXFmzOyTwQsd-1O5Yv-IUvLh6V3zhmI4MmNmYLMMn7Wnf_g6NJO8m_B83rv8uUC_xWc/pub" target="_blank">View Document</a>
-    </div>
-  </div>
+    <section>
+      <h2>Project Documentation</h2>
+      <div class="embed-container">
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vTgl5EWHKCoFvXFmzOyTwQsd-1O5Yv-IUvLh6V3zhmI4MmNmYLMMn7Wnf_g6NJO8m_B83rv8uUC_xWc/pub?embedded=true" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
