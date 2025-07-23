@@ -6,56 +6,122 @@
   <title>Portfolio | Oluwatobi Abass</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* Basic styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
     header {
-      background: #0078d7;
+      background-color: #0078d7;
+      padding: 20px;
       color: white;
-      padding: 1rem 2rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.6rem;
     }
     nav a {
       color: white;
-      margin-left: 1rem;
       text-decoration: none;
+      margin-left: 20px;
       font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
     }
     nav a.active, nav a:hover {
-      text-decoration: underline;
+      background-color: #005ba1;
     }
     main {
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    footer {
-      text-align: center;
-      margin: 3rem 0;
+    section.project {
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    section.project:last-child {
+      border-bottom: none;
+    }
+    h2 {
+      color: #0078d7;
+      margin-bottom: 12px;
+    }
+    p.description {
+      margin: 0 0 8px 0;
+    }
+    p.skills {
+      font-style: italic;
       color: #555;
-      font-size: 0.9rem;
+      margin: 0 0 8px 0;
+    }
+    a.project-link {
+      color: #0078d7;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.project-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Portfolio | Oluwatobi Abass</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="bio.html">Bio</a>
-      <a href="portfolio.html" class="active">Portfolio</a>
-      <a href="elevator.html">Elevator Pitch</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <main>
-    <!-- Your portfolio content here -->
-    <p>Welcome to my projects and contributions...</p>
-  </main>
+<header>
+  <h1>Portfolio | Oluwatobi Abass</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="bio.html">Bio</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="elevator.html">Elevator Pitch</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <footer>
-    &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
-  </footer>
+<main>
+
+  <section class="project">
+    <h2>UPS Shipping API Integration</h2>
+    <p class="description">
+      Developed a shipping API integration using AWS developer tools to automate package tracking and shipment scheduling with UPS services.
+    </p>
+    <p class="skills">Skills: AWS, API Integration, Python, Cloud Engineering</p>
+    <a href="https://github.com/abasstobi/ups-shipping-api" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+  </section>
+
+  <section class="project">
+    <h2>Data Science Portfolio</h2>
+    <p class="description">
+      A comprehensive portfolio demonstrating projects in statistical analysis, machine learning, and data visualization.
+    </p>
+    <p class="skills">Skills: Python, Pandas, Scikit-learn, Tableau</p>
+    <a href="https://datascienceportfol.io/abasstobi6" class="project-link" target="_blank" rel="noopener noreferrer">View Online</a>
+  </section>
+
+  <section class="project">
+    <h2>Cloud Systems Management</h2>
+    <p class="description">
+      Hands-on experience managing Windows instances on AWS EC2, configuring remote desktop protocols, and troubleshooting cloud infrastructure.
+    </p>
+    <p class="skills">Skills: AWS EC2, Windows Server, RDP, Troubleshooting</p>
+    <a href="https://github.com/abasstobi/cloud-systems-management" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+  </section>
+
+</main>
+
+<footer style="text-align:center; padding: 20px 0; color: #555; font-size: 0.9rem;">
+  &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
+</footer>
+
 </body>
 </html>
