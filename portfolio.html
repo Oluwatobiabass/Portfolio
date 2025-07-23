@@ -16,42 +16,32 @@
     header {
       background-color: #0078d7;
       padding: 20px;
+      text-align: center;
       color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
     }
-    header h1 {
-      margin: 0;
-      font-size: 1.6rem;
+    nav {
+      margin-top: 10px;
     }
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
+      margin: 0 12px;
       font-weight: bold;
-      padding: 8px 12px;
+      padding: 8px 15px;
       border-radius: 6px;
       transition: background-color 0.3s ease;
     }
-    nav a.active, nav a:hover {
+    nav a:hover, nav a.active {
       background-color: #005ba1;
     }
     main {
       max-width: 900px;
-      margin: 40px auto;
+      margin: 60px auto;
+      text-align: center;
       padding: 0 20px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     section.project {
-      padding: 20px;
-      border-bottom: 1px solid #ddd;
-    }
-    section.project:last-child {
-      border-bottom: none;
+      margin-bottom: 40px;
     }
     h2 {
       color: #0078d7;
@@ -73,6 +63,14 @@
     a.project-link:hover {
       text-decoration: underline;
     }
+    footer {
+      background-color: #222;
+      color: #aaa;
+      padding: 15px;
+      text-align: center;
+      margin-top: 60px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
@@ -89,7 +87,6 @@
 </header>
 
 <main>
-
   <section class="project">
     <h2>UPS Shipping API Integration</h2>
     <p class="description">
@@ -116,10 +113,9 @@
     <p class="skills">Skills: AWS EC2, Windows Server, RDP, Troubleshooting</p>
     <a href="https://github.com/abasstobi/cloud-systems-management" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub</a>
   </section>
-
 </main>
 
-<footer style="text-align:center; padding: 20px 0; color: #555; font-size: 0.9rem;">
+<footer>
   &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
 </footer>
 
