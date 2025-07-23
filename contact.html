@@ -3,36 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Me | Toby Sam</title>
+  <title>Contact | Toby Sam</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0078d7;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover,
+    nav a.active {
+      background-color: #005ba1;
+    }
+    main {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
     .contact-container {
       max-width: 600px;
-      margin: 80px auto;
+      margin: 40px auto;
       padding: 30px;
       background: #fff;
-      border-radius: 16px;
+      border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      text-align: left;
     }
-
     .contact-container h2 {
       text-align: center;
-      font-size: 2rem;
-      color: #222;
+      font-size: 1.8rem;
+      color: #0078d7;
       margin-bottom: 20px;
     }
-
     form {
       display: flex;
       flex-direction: column;
     }
-
     label {
       margin-bottom: 5px;
       font-weight: 600;
       color: #444;
     }
-
     input, textarea {
       padding: 10px;
       margin-bottom: 15px;
@@ -42,11 +74,9 @@
       outline: none;
       transition: border 0.3s ease;
     }
-
     input:focus, textarea:focus {
       border: 1px solid #0078d7;
     }
-
     button {
       padding: 10px 20px;
       border: none;
@@ -57,9 +87,16 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
-
     button:hover {
       background: #005ba1;
+    }
+    footer {
+      background-color: #222;
+      color: #aaa;
+      padding: 15px;
+      text-align: center;
+      margin-top: 60px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -69,30 +106,32 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="bio.html">Bio</a>
+      <a href="portfolio.html">Portfolio</a>
       <a href="elevator.html">Elevator Pitch</a>
-      <a href="portfolio.html">Projects</a>
       <a href="contact.html" class="active">Contact</a>
     </nav>
   </header>
 
-  <section class="contact-container">
-    <h2>Send Me a Message</h2>
-    <form action="https://formspree.io/f/mdkdeoee" method="POST">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required>
+  <main>
+    <section class="contact-container">
+      <h2>Send Me a Message</h2>
+      <form action="https://formspree.io/f/mdkdeoee" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
 
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="_replyto" required>
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="_replyto" required>
 
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject">
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
 
   <footer>
     &copy; 2025 Toby Sam | Built with GitHub Pages
