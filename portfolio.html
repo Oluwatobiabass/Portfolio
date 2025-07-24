@@ -5,10 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio | Oluwatobi Abass</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .project-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    .project-card img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .project-card h3 {
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+    .project-card p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    .project-card .skills {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    .project-card a {
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>My Portfolio</h1>
+    <h1>My Projects</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="bio.html">Bio</a>
@@ -20,39 +66,34 @@
 
   <main>
     <section>
-      <h2>Projects & Contributions</h2>
+      <h2>Highlighted Projects</h2>
       <div class="projects">
-
         <!-- Project 1 -->
         <div class="project-card">
+          <img src="images/ups-api.png" alt="UPS Shipping API Project">
           <h3>UPS Shipping API Integration</h3>
-          <p>
-            Developed a shipping API integration using AWS developer tools to automate package tracking and shipment scheduling with UPS services.
-          </p>
-          <p><strong>Skills:</strong> AWS, API Integration, Python, Cloud Engineering</p>
-          <a href="https://github.com/abasstobi/ups-shipping-api" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          <p>Developed a shipping API integration using AWS tools to automate package tracking and scheduling with UPS services.</p>
+          <p class="skills">Skills: AWS, API Integration, Python, Cloud Engineering</p>
+          <a href="https://github.com/abasstobi/ups-shipping-api" target="_blank" rel="noopener noreferrer">View on GitHub</a>
         </div>
 
         <!-- Project 2 -->
         <div class="project-card">
+          <img src="images/data-science.png" alt="Data Science Portfolio">
           <h3>Data Science Portfolio</h3>
-          <p>
-            A comprehensive portfolio demonstrating projects in statistical analysis, machine learning, and data visualization.
-          </p>
-          <p><strong>Skills:</strong> Python, Pandas, Scikit-learn, Tableau</p>
-          <a href="https://datascienceportfol.io/abasstobi6" class="btn" target="_blank" rel="noopener noreferrer">View Online</a>
+          <p>A collection of projects in machine learning, statistical analysis, and data visualization.</p>
+          <p class="skills">Skills: Python, Pandas, Scikit-learn, Tableau</p>
+          <a href="https://datascienceportfol.io/abasstobi6" target="_blank" rel="noopener noreferrer">View Online</a>
         </div>
 
         <!-- Project 3 -->
         <div class="project-card">
+          <img src="images/cloud-systems.png" alt="Cloud Systems Management">
           <h3>Cloud Systems Management</h3>
-          <p>
-            Hands-on experience managing Windows instances on AWS EC2, configuring remote desktop protocols, and troubleshooting cloud infrastructure.
-          </p>
-          <p><strong>Skills:</strong> AWS EC2, Windows Server, RDP, Troubleshooting</p>
-          <a href="https://github.com/abasstobi/cloud-systems-management" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+          <p>Hands-on experience managing Windows instances on AWS EC2, configuring RDP, and troubleshooting infrastructure.</p>
+          <p class="skills">Skills: AWS EC2, Windows Server, RDP, Troubleshooting</p>
+          <a href="https://github.com/abasstobi/cloud-systems-management" target="_blank" rel="noopener noreferrer">View on GitHub</a>
         </div>
-
       </div>
     </section>
   </main>
