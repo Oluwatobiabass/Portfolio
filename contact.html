@@ -1,49 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | Oluwatobi Abass</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    .contact-card {
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 30px;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      text-align: center;
-    }
-    .contact-card h2 {
-      color: var(--accent-color);
-      margin-bottom: 20px;
-    }
-    .contact-card p {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-    .contact-card a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-    .contact-card a:hover {
-      text-decoration: underline;
-    }
-    .social-icons {
-      margin-top: 20px;
-    }
-    .social-icons a {
-      color: #333;
-      font-size: 1.5rem;
-      margin: 0 10px;
-      transition: color 0.3s ease;
-    }
-    .social-icons a:hover {
-      color: var(--accent-color);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -58,17 +19,32 @@
   </header>
 
   <main>
-    <div class="contact-card">
-      <h2>Get in Touch</h2>
-      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:abasstobi6@gmail.com">abasstobi6@gmail.com</a></p>
-      <p><i class="fa-solid fa-phone"></i> <a href="tel:+254742673394">+254 742 673 394</a></p>
+    <section class="about">
+      <h2>Send Me a Message</h2>
+      <form action="https://formspree.io/f/mdkdeoee" method="POST">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
 
-      <div class="social-icons">
-        <a href="https://x.com/KoreaNotKorean?t=2PmMcVsKe08TiUvJSO353w&s=09" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.instagram.com/continuetotreasure?igsh=MnozcGh3MjI4NGoz" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/oluwatobi-abass-056684312" target="_blank"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </div>
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="_replyto" required>
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+      <p>You can also reach me directly:</p>
+      <ul>
+        <li>Email: <a href="mailto:abasstobi6@gmail.com">abasstobi6@gmail.com</a></li>
+        <li>Phone: +254 742 673 394</li>
+        <li><a href="https://x.com/KoreaNotKorean" target="_blank">Twitter</a></li>
+        <li><a href="https://www.instagram.com/continuetotreasure" target="_blank">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/oluwatobi-abass-056684312" target="_blank">LinkedIn</a></li>
+      </ul>
+    </section>
   </main>
 
   <footer>
