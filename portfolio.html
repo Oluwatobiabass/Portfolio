@@ -5,102 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio | Oluwatobi Abass</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    main {
-      max-width: 1100px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .project-card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease;
-      text-align: center;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    .project-card h2 {
-      color: var(--accent-color);
-      margin-bottom: 10px;
-    }
-    .project-card p {
-      margin-bottom: 10px;
-    }
-    a.project-link {
-      color: var(--accent-color);
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a.project-link:hover {
-      text-decoration: underline;
-    }
-  </style>
 </head>
 <body>
+  <header>
+    <h1>Portfolio</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="bio.html">Bio</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="elevator.html">Elevator Pitch</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<header>
-  <h1>Portfolio | Oluwatobi Abass</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="bio.html">Bio</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
-    <a href="elevator.html">Elevator Pitch</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  <main>
+    <section class="projects">
+      <div class="project-card">
+        <img src="Portfolio/images/ups-shipping.png" alt="UPS Shipping API Project">
+        <h2>UPS Shipping API Integration</h2>
+        <p>Developed an API integration using AWS tools for automated package tracking and scheduling with UPS.</p>
+        <a href="https://github.com/abasstobi/ups-shipping-api" class="project-link" target="_blank">View on GitHub</a>
+      </div>
 
-<main>
-  <div class="projects">
-    <div class="project-card">
-      <img src="Portfolio/images/ups-api.png" alt="UPS Shipping API Project">
-      <h2>UPS Shipping API Integration</h2>
-      <p>
-        Developed a shipping API integration using AWS developer tools to automate package tracking and shipment scheduling with UPS services.
-      </p>
-      <p class="skills">Skills: AWS, API Integration, Python, Cloud Engineering</p>
-      <a href="https://github.com/abasstobi/ups-shipping-api" class="project-link" target="_blank">View on GitHub</a>
-    </div>
+      <div class="project-card">
+        <img src="Portfolio/images/data-science.png" alt="Data Science Portfolio">
+        <h2>Data Science Portfolio</h2>
+        <p>A comprehensive portfolio showcasing projects in statistical analysis, machine learning, and visualization.</p>
+        <a href="https://datascienceportfol.io/abasstobi6" class="project-link" target="_blank">View Online</a>
+      </div>
 
-    <div class="project-card">
-      <img src="Portfolio/images/data-science.png" alt="Data Science Portfolio">
-      <h2>Data Science Portfolio</h2>
-      <p>
-        A comprehensive portfolio demonstrating projects in statistical analysis, machine learning, and data visualization.
-      </p>
-      <p class="skills">Skills: Python, Pandas, Scikit-learn, Tableau</p>
-      <a href="https://datascienceportfol.io/abasstobi6" class="project-link" target="_blank">View Online</a>
-    </div>
+      <div class="project-card">
+        <img src="Portfolio/images/cloud-management.png" alt="Cloud Management Project">
+        <h2>Cloud Systems Management</h2>
+        <p>Managed AWS EC2 Windows instances, configured RDP, and optimized cloud infrastructure performance.</p>
+        <a href="https://github.com/abasstobi/cloud-systems-management" class="project-link" target="_blank">View on GitHub</a>
+      </div>
+    </section>
+  </main>
 
-    <div class="project-card">
-      <img src="Portfolio/images/cloud-management.png" alt="Cloud Systems Management">
-      <h2>Cloud Systems Management</h2>
-      <p>
-        Hands-on experience managing Windows instances on AWS EC2, configuring remote desktop protocols, and troubleshooting cloud infrastructure.
-      </p>
-      <p class="skills">Skills: AWS EC2, Windows Server, RDP, Troubleshooting</p>
-      <a href="https://github.com/abasstobi/cloud-systems-management" class="project-link" target="_blank">View on GitHub</a>
-    </div>
-  </div>
-</main>
-
-<footer>
-  &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
-</footer>
-
+  <footer>
+    &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
+  </footer>
 </body>
 </html>
