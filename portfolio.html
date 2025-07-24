@@ -5,46 +5,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio | Oluwatobi Abass</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    main {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+    .project-card img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .project-card h2 {
+      color: var(--accent-color);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+    .project-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 12px;
+      text-align: justify;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Portfolio</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="bio.html">Bio</a>
-      <a href="portfolio.html" class="active">Portfolio</a>
-      <a href="elevator.html">Elevator Pitch</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="projects">
+<header>
+  <h1>Portfolio | Oluwatobi Abass</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="bio.html">Bio</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="elevator.html">Elevator Pitch</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>My Projects</h2>
+    <p style="text-align: center; margin-bottom: 20px;">
+      Explore some of the projects I’ve worked on, showcasing my skills in cloud engineering, data science, and software development.
+    </p>
+
+    <div class="projects">
+      <!-- Project 1 -->
       <div class="project-card">
-        <img src="Portfolio/images/ups-shipping.png" alt="UPS Shipping API Project">
+        <img src="images/ups-api.png" alt="UPS Shipping API Project">
         <h2>UPS Shipping API Integration</h2>
-        <p>Developed an API integration using AWS tools for automated package tracking and scheduling with UPS.</p>
+        <p>
+          Built a UPS API shipping application using AWS Developer Tools for automated tracking and delivery scheduling.
+          The project focuses on seamless backend integration, secure API handling, and real-time updates.
+        </p>
         <a href="https://github.com/abasstobi/ups-shipping-api" class="btn" target="_blank">View on GitHub</a>
       </div>
 
+      <!-- Project 2 -->
       <div class="project-card">
-        <img src="Portfolio/images/data-science.png" alt="Data Science Portfolio">
+        <img src="images/data-science.png" alt="Data Science Portfolio">
         <h2>Data Science Portfolio</h2>
-        <p>A comprehensive portfolio showcasing projects in statistical analysis, machine learning, and visualization.</p>
+        <p>
+          A comprehensive portfolio showcasing my work in data interpretation, visualization,
+          and statistical modeling using Python libraries such as Pandas, Matplotlib, and Scikit-learn.
+        </p>
         <a href="https://datascienceportfol.io/abasstobi6" class="btn" target="_blank">View Online</a>
       </div>
 
+      <!-- Project 3 -->
       <div class="project-card">
-        <img src="Portfolio/images/cloud-management.png" alt="Cloud Management Project">
+        <img src="images/cloud-management.png" alt="Cloud Systems Management">
         <h2>Cloud Systems Management</h2>
-        <p>Managed AWS EC2 Windows instances, configured RDP, and optimized cloud infrastructure performance.</p>
+        <p>
+          Managed Windows instances on AWS EC2 with RDP, DNS configuration, and troubleshooting.
+          Optimized cloud infrastructure for better performance and security.
+        </p>
         <a href="https://github.com/abasstobi/cloud-systems-management" class="btn" target="_blank">View on GitHub</a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 
-  <footer>
-    &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
-  </footer>
+<footer>
+  &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
+</footer>
+
 </body>
 </html>
