@@ -13,15 +13,18 @@
       margin: 0;
       padding: 0;
     }
+
     header {
-      background-color: #0078d7;
+      background: linear-gradient(135deg, #0078d7, #005ba1);
       padding: 20px;
       text-align: center;
       color: white;
     }
+
     nav {
       margin-top: 10px;
     }
+
     nav a {
       color: white;
       text-decoration: none;
@@ -31,24 +34,56 @@
       border-radius: 6px;
       transition: background-color 0.3s ease;
     }
+
     nav a:hover,
     nav a.active {
-      background-color: #005ba1;
+      background-color: #003f73;
     }
+
     main {
       max-width: 900px;
       margin: 60px auto;
       padding: 0 20px;
-      text-align: center;
     }
-    section.about {
-      text-align: left;
+
+    .about {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-    section.about h2 {
+
+    .about h2 {
       color: #0078d7;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
       text-align: center;
+      font-size: 1.8rem;
     }
+
+    .about p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .cta-btn {
+      display: block;
+      margin: 30px auto 0;
+      text-align: center;
+      background: #0078d7;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      width: fit-content;
+    }
+
+    .cta-btn:hover {
+      background: #005ba1;
+    }
+
     footer {
       background-color: #222;
       color: #aaa;
@@ -102,6 +137,8 @@
       where I can contribute and grow alongside a forward-thinking team.
       <strong>Let’s connect and explore how I can help you build secure, data-driven digital solutions.</strong>
     </p>
+
+    <a href="contact.html" class="cta-btn">Contact Me</a>
   </section>
 </main>
 
