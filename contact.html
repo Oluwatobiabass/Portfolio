@@ -13,15 +13,18 @@
       margin: 0;
       padding: 0;
     }
+
     header {
-      background-color: #0078d7;
+      background: linear-gradient(135deg, #0078d7, #005ba1);
       padding: 20px;
       text-align: center;
       color: white;
     }
+
     nav {
       margin-top: 10px;
     }
+
     nav a {
       color: white;
       text-decoration: none;
@@ -31,16 +34,19 @@
       border-radius: 6px;
       transition: background-color 0.3s ease;
     }
+
     nav a:hover,
     nav a.active {
-      background-color: #005ba1;
+      background-color: #003f73;
     }
+
     main {
       max-width: 900px;
       margin: 60px auto;
       padding: 0 20px;
       text-align: center;
     }
+
     .contact-container {
       max-width: 600px;
       margin: 40px auto;
@@ -49,47 +55,82 @@
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       text-align: left;
+      animation: fadeIn 0.8s ease-in-out;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .contact-container h2 {
       text-align: center;
       font-size: 1.8rem;
       color: #0078d7;
       margin-bottom: 20px;
     }
+
     form {
       display: flex;
       flex-direction: column;
     }
+
     label {
       margin-bottom: 5px;
       font-weight: 600;
       color: #444;
     }
+
     input, textarea {
-      padding: 10px;
+      padding: 12px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1rem;
       outline: none;
-      transition: border 0.3s ease;
+      transition: border 0.3s ease, box-shadow 0.3s ease;
     }
+
     input:focus, textarea:focus {
       border: 1px solid #0078d7;
+      box-shadow: 0 0 5px rgba(0, 120, 215, 0.5);
     }
+
     button {
-      padding: 10px 20px;
+      padding: 12px;
       border: none;
       border-radius: 8px;
       background: #0078d7;
       color: #fff;
       font-size: 1.1rem;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
+
     button:hover {
       background: #005ba1;
+      transform: scale(1.02);
     }
+
+    .social-links {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0078d7;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #005ba1;
+      text-decoration: underline;
+    }
+
     footer {
       background-color: #222;
       color: #aaa;
@@ -130,6 +171,13 @@
 
         <button type="submit">Send Message</button>
       </form>
+
+      <div class="social-links">
+        <p>Or connect with me:</p>
+        <a href="https://github.com/abasstobi" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/abasstobi" target="_blank">LinkedIn</a>
+        <a href="mailto:abasstobi@gmail.com">Email</a>
+      </div>
     </section>
   </main>
 
