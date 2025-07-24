@@ -147,18 +147,18 @@ footer {
   font-size: 0.9rem;
 }
 
-footer .social-links {
-  margin: 10px 0;
+.social-links {
+  margin-bottom: 10px;
 }
 
-footer .social-links a {
+.social-links a {
   color: #fff;
   margin: 0 8px;
-  font-size: 1.2rem;
-  transition: color var(--transition-speed) ease;
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
 }
 
-footer .social-links a:hover {
+.social-links a:hover {
   color: var(--accent-color);
 }
 
