@@ -60,9 +60,19 @@
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      text-align: left;
+      overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-card-content {
+      padding: 20px;
     }
 
     .project-card:hover {
@@ -73,6 +83,7 @@
     .project-card h2 {
       color: #0078d7;
       margin-bottom: 10px;
+      font-size: 1.2rem;
     }
 
     .project-card p.description {
@@ -127,60 +138,78 @@
   <h1>My Projects & Contributions</h1>
 
   <div class="projects-grid">
-    <!-- Existing Projects -->
+    <!-- Project Card Example -->
     <div class="project-card">
-      <h2>UPS Shipping API Integration</h2>
-      <p class="description">
-        Developed a shipping API integration using AWS developer tools to automate package tracking and shipment scheduling with UPS services.
-      </p>
-      <p class="skills">Skills: AWS, API Integration, Python, Cloud Engineering</p>
-      <a href="https://github.com/abasstobi/ups-shipping-api" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      <img src="https://via.placeholder.com/400x200?text=UPS+API+Integration" alt="UPS Shipping API Integration">
+      <div class="project-card-content">
+        <h2>UPS Shipping API Integration</h2>
+        <p class="description">
+          Developed a shipping API integration using AWS developer tools to automate package tracking and shipment scheduling with UPS services.
+        </p>
+        <p class="skills">Skills: AWS, API Integration, Python, Cloud Engineering</p>
+        <a href="https://github.com/abasstobi/ups-shipping-api" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </div>
     </div>
 
     <div class="project-card">
-      <h2>Data Science Portfolio</h2>
-      <p class="description">
-        A comprehensive portfolio demonstrating projects in statistical analysis, machine learning, and data visualization.
-      </p>
-      <p class="skills">Skills: Python, Pandas, Scikit-learn, Tableau</p>
-      <a href="https://datascienceportfol.io/abasstobi6" class="project-link" target="_blank" rel="noopener noreferrer">View Online</a>
+      <img src="https://via.placeholder.com/400x200?text=Data+Science+Portfolio" alt="Data Science Portfolio">
+      <div class="project-card-content">
+        <h2>Data Science Portfolio</h2>
+        <p class="description">
+          A comprehensive portfolio demonstrating projects in statistical analysis, machine learning, and data visualization.
+        </p>
+        <p class="skills">Skills: Python, Pandas, Scikit-learn, Tableau</p>
+        <a href="https://datascienceportfol.io/abasstobi6" class="project-link" target="_blank" rel="noopener noreferrer">View Online</a>
+      </div>
     </div>
 
     <div class="project-card">
-      <h2>Cloud Systems Management</h2>
-      <p class="description">
-        Hands-on experience managing Windows instances on AWS EC2, configuring remote desktop protocols, and troubleshooting cloud infrastructure.
-      </p>
-      <p class="skills">Skills: AWS EC2, Windows Server, RDP, Troubleshooting</p>
-      <a href="https://github.com/abasstobi/cloud-systems-management" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      <img src="https://via.placeholder.com/400x200?text=Cloud+Systems+Management" alt="Cloud Systems Management">
+      <div class="project-card-content">
+        <h2>Cloud Systems Management</h2>
+        <p class="description">
+          Hands-on experience managing Windows instances on AWS EC2, configuring remote desktop protocols, and troubleshooting cloud infrastructure.
+        </p>
+        <p class="skills">Skills: AWS EC2, Windows Server, RDP, Troubleshooting</p>
+        <a href="https://github.com/abasstobi/cloud-systems-management" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </div>
     </div>
 
-    <!-- New Placeholder Projects -->
+    <!-- Placeholder Projects -->
     <div class="project-card">
-      <h2>Data Insights Dashboard</h2>
-      <p class="description">
-        A data visualization project using Python and Power BI to create actionable business insights.
-      </p>
-      <p class="skills">Skills: Python, Pandas, Power BI</p>
-      <a href="#" class="project-link">View on GitHub</a>
-    </div>
-
-    <div class="project-card">
-      <h2>AWS EC2 Deployment Script</h2>
-      <p class="description">
-        Automated the setup of Windows instances on AWS using Boto3 and PowerShell scripts.
-      </p>
-      <p class="skills">Skills: AWS EC2, Boto3, PowerShell</p>
-      <a href="#" class="project-link">View on GitHub</a>
+      <img src="https://via.placeholder.com/400x200?text=Data+Insights+Dashboard" alt="Data Insights Dashboard">
+      <div class="project-card-content">
+        <h2>Data Insights Dashboard</h2>
+        <p class="description">
+          A data visualization project using Python and Power BI to create actionable business insights.
+        </p>
+        <p class="skills">Skills: Python, Pandas, Power BI</p>
+        <a href="#" class="project-link">View on GitHub</a>
+      </div>
     </div>
 
     <div class="project-card">
-      <h2>Football Analytics Tool</h2>
-      <p class="description">
-        A project analyzing football statistics and predicting match outcomes using machine learning.
-      </p>
-      <p class="skills">Skills: Python, Scikit-learn, Matplotlib</p>
-      <a href="#" class="project-link">View on GitHub</a>
+      <img src="https://via.placeholder.com/400x200?text=AWS+EC2+Deployment" alt="AWS EC2 Deployment Script">
+      <div class="project-card-content">
+        <h2>AWS EC2 Deployment Script</h2>
+        <p class="description">
+          Automated the setup of Windows instances on AWS using Boto3 and PowerShell scripts.
+        </p>
+        <p class="skills">Skills: AWS EC2, Boto3, PowerShell</p>
+        <a href="#" class="project-link">View on GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="https://via.placeholder.com/400x200?text=Football+Analytics" alt="Football Analytics Tool">
+      <div class="project-card-content">
+        <h2>Football Analytics Tool</h2>
+        <p class="description">
+          A project analyzing football statistics and predicting match outcomes using machine learning.
+        </p>
+        <p class="skills">Skills: Python, Scikit-learn, Matplotlib</p>
+        <a href="#" class="project-link">View on GitHub</a>
+      </div>
     </div>
   </div>
 </main>
