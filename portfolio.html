@@ -7,11 +7,67 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    :root {
+      --accent-color: #00bcd4;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: var(--accent-color);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: #ffeb3b;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .about h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .about p {
+      text-align: center;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
-      padding: 20px;
     }
 
     .project-card {
@@ -28,11 +84,14 @@
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
-    .project-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 15px;
+    .project-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      line-height: 1.5;
     }
 
     .btn {
@@ -43,10 +102,30 @@
       text-decoration: none;
       border-radius: 5px;
       transition: background-color 0.3s ease;
+      margin-top: 10px;
     }
 
     .btn:hover {
       background-color: #0097a7;
+    }
+
+    .embed-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+
+    .embed-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .social-links {
@@ -64,6 +143,15 @@
 
     .social-links a:hover {
       color: #0097a7;
+    }
+
+    footer {
+      text-align: center;
+      background: #222;
+      color: #fff;
+      padding: 15px 0;
+      font-size: 0.9rem;
+      margin-top: 40px;
     }
   </style>
 </head>
@@ -91,37 +179,68 @@
     </section>
 
     <section class="projects">
-      <!-- Project 1: UPS API Shipping App -->
+      <!-- Project 1 -->
       <div class="project-card">
-        <img src="images/ups-api.png" alt="UPS API Shipping App">
         <h3>UPS API Shipping App</h3>
         <p>
           A cloud-integrated API application built using AWS developer tools 
           to streamline shipping operations.
         </p>
-        <a href="https://www.datascienceportfol.io/abasstobi6" class="btn" target="_blank">View Project</a>
+        <div class="embed-container">
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vROfT2ZHumlAwqkkY8DxgBRyA4xatjEbL79s6koZBnmc9v8JW-9TenZxbT_dW9FT35ooQhzJRFjEe8b/pubembed?start=true&loop=false&delayms=3000" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <a href="https://github.com/YourGitHubUsername/ups-api-shipping" class="btn" target="_blank">View on GitHub</a>
       </div>
 
-      <!-- Project 2: Cloud Management -->
+      <!-- Project 2 -->
       <div class="project-card">
-        <img src="images/cloud-management.png" alt="Cloud Systems Management">
         <h3>Cloud Systems Management</h3>
         <p>
           Hands-on experience managing and automating Windows environments 
           using AWS EC2 and RDP configurations.
         </p>
-        <a href="https://www.datascienceportfol.io/abasstobi6" class="btn" target="_blank">View Details</a>
+        <div class="embed-container">
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRhE-r4VxoC_W9y4p7wrN_0fWGVv00dS5t4oeBE1UuHqO0-YXzotKwqhbP2TzdzctgQQO4tSyMtLXQV/pubembed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <a href="https://github.com/YourGitHubUsername/cloud-systems" class="btn" target="_blank">View on GitHub</a>
       </div>
 
-      <!-- Project 3: Data Science -->
+      <!-- Project 3 -->
       <div class="project-card">
-        <img src="images/data-science.png" alt="Data Science Projects">
         <h3>Data Science Projects</h3>
         <p>
           Data interpretation and visualization projects focused on uncovering 
           actionable insights from datasets.
         </p>
-        <a href="https://www.datascienceportfol.io/abasstobi6" class="btn" target="_blank">Explore Insights</a>
+        <div class="embed-container">
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS3W41T6l9khqqF4vmyTxBG2dhRF4fOB75oHoHzyrew7XPPPo-Ref7BLYVSQoHK4miSn8wmsmuY6nx0/pubembed?start=true&loop=false&delayms=3000" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <a href="https://github.com/YourGitHubUsername/data-science-projects" class="btn" target="_blank">Explore on GitHub</a>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <h3>Team Presentation Contribution</h3>
+        <p>
+          Contributed to team-based presentation projects showcasing problem-solving 
+          and strategic planning.
+        </p>
+        <div class="embed-container">
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSO6e-avqKc6_7wzArRjYCcXwYxG3RHdyGJ_jE4luvft7Yj7XspEvETPXtB-wcLoiIzLaNYXuvCY_9b/pubembed?start=false&loop=true&delayms=3000" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <a href="https://github.com/YourGitHubUsername/team-projects" class="btn" target="_blank">View on GitHub</a>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card">
+        <h3>Wireframe & Design Prototype</h3>
+        <p>
+          Created and designed a wireframe prototype using Miro to visualize 
+          application workflows and UX planning.
+        </p>
+        <div class="embed-container">
+          <iframe src="https://miro.com/app/live-embed/uXjVImLQDbY=/?embedMode=view_only_without_ui&moveToViewport=-5635,12,5193,2349&embedId=612545126388" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
     </section>
 
