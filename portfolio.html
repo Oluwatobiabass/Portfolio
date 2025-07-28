@@ -53,14 +53,23 @@
       margin: auto;
     }
 
-    .about h2 {
-      text-align: center;
-      margin-bottom: 10px;
+    /* Card style for intro and projects */
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
     }
 
-    .about p {
+    .card h2 {
+      margin-top: 0;
+      color: var(--accent-color);
       text-align: center;
-      margin-bottom: 40px;
+    }
+
+    .card p {
+      text-align: center;
       line-height: 1.6;
     }
 
@@ -86,6 +95,7 @@
 
     .project-card h3 {
       margin-bottom: 10px;
+      color: var(--accent-color);
     }
 
     .project-card p {
@@ -109,6 +119,7 @@
       background-color: #0097a7;
     }
 
+    /* Responsive embed container */
     .embed-container {
       position: relative;
       padding-bottom: 56.25%; /* 16:9 ratio */
@@ -128,9 +139,15 @@
       border: 0;
     }
 
+    /* Social Links */
     .social-links {
       text-align: center;
       margin: 40px 0 10px;
+    }
+
+    .social-links h2 {
+      color: var(--accent-color);
+      margin-bottom: 15px;
     }
 
     .social-links a {
@@ -168,7 +185,8 @@
   </header>
 
   <main>
-    <section class="about">
+    <!-- Intro card -->
+    <section class="card">
       <h2>Projects & Contributions</h2>
       <p>
         Below are some of my highlighted projects that showcase my expertise in 
@@ -178,6 +196,7 @@
       </p>
     </section>
 
+    <!-- Projects grid -->
     <section class="projects">
       <!-- Project 1 -->
       <div class="project-card">
@@ -187,7 +206,7 @@
           to streamline shipping operations.
         </p>
         <div class="embed-container">
-          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vROfT2ZHumlAwqkkY8DxgBRyA4xatjEbL79s6koZBnmc9v8JW-9TenZxbT_dW9FT35ooQhzJRFjEe8b/pubembed?start=true&loop=false&delayms=3000" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vROfT2ZHumlAwqkkY8DxgBRyA4xatjEbL79s6koZBnmc9v8JW-9TenZxbT_dW9FT35ooQhzJRFjEe8b/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
         </div>
         <a href="https://github.com/YourGitHubUsername/ups-api-shipping" class="btn" target="_blank">View on GitHub</a>
       </div>
@@ -200,7 +219,7 @@
           using AWS EC2 and RDP configurations.
         </p>
         <div class="embed-container">
-          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRhE-r4VxoC_W9y4p7wrN_0fWGVv00dS5t4oeBE1UuHqO0-YXzotKwqhbP2TzdzctgQQO4tSyMtLXQV/pubembed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRhE-r4VxoC_W9y4p7wrN_0fWGVv00dS5t4oeBE1UuHqO0-YXzotKwqhbP2TzdzctgQQO4tSyMtLXQV/pubembed?start=false&loop=false&delayms=3000" allowfullscreen></iframe>
         </div>
         <a href="https://github.com/YourGitHubUsername/cloud-systems" class="btn" target="_blank">View on GitHub</a>
       </div>
@@ -213,7 +232,7 @@
           actionable insights from datasets.
         </p>
         <div class="embed-container">
-          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS3W41T6l9khqqF4vmyTxBG2dhRF4fOB75oHoHzyrew7XPPPo-Ref7BLYVSQoHK4miSn8wmsmuY6nx0/pubembed?start=true&loop=false&delayms=3000" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS3W41T6l9khqqF4vmyTxBG2dhRF4fOB75oHoHzyrew7XPPPo-Ref7BLYVSQoHK4miSn8wmsmuY6nx0/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
         </div>
         <a href="https://github.com/YourGitHubUsername/data-science-projects" class="btn" target="_blank">Explore on GitHub</a>
       </div>
@@ -226,7 +245,7 @@
           and strategic planning.
         </p>
         <div class="embed-container">
-          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSO6e-avqKc6_7wzArRjYCcXwYxG3RHdyGJ_jE4luvft7Yj7XspEvETPXtB-wcLoiIzLaNYXuvCY_9b/pubembed?start=false&loop=true&delayms=3000" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSO6e-avqKc6_7wzArRjYCcXwYxG3RHdyGJ_jE4luvft7Yj7XspEvETPXtB-wcLoiIzLaNYXuvCY_9b/pubembed?start=false&loop=true&delayms=3000" allowfullscreen></iframe>
         </div>
         <a href="https://github.com/YourGitHubUsername/team-projects" class="btn" target="_blank">View on GitHub</a>
       </div>
@@ -239,7 +258,7 @@
           application workflows and UX planning.
         </p>
         <div class="embed-container">
-          <iframe src="https://miro.com/app/live-embed/uXjVImLQDbY=/?embedMode=view_only_without_ui&moveToViewport=-5635,12,5193,2349&embedId=612545126388" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://miro.com/app/live-embed/uXjVImLQDbY=/?embedMode=view_only_without_ui&moveToViewport=-5635,12,5193,2349&embedId=612545126388" allowfullscreen></iframe>
         </div>
       </div>
     </section>
