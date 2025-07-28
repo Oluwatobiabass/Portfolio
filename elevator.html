@@ -3,51 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Elevator Pitch | Oluwatobi Abass</title>
+  <title>Elevator Pitch | Tobi Abass</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      max-width: 800px;
+    }
+
+    .embed-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .embed-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    main h2 {
+      text-align: center;
+      color: var(--accent-color);
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Elevator Pitch</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="bio.html">Bio</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="elevator.html" class="active">Elevator Pitch</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="about">
-      <h2>My Elevator Pitch</h2>
-      <p>
-        In this video, I share my journey, my passion for Cloud Engineering, Cybersecurity,
-        and Data Science — showcasing how I create value by connecting technology, data, and innovation.
-      </p>
+<header>
+  <h1>My Elevator Pitch</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="bio.html">Bio</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="elevator.html" class="active">Elevator Pitch</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-      <div class="embed-container">
-        <iframe 
-          src="https://www.youtube.com/embed/LmU8TxEsPl0" 
-          title="Oluwatobi Abass Pitch Video" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
-        </iframe>
-      </div>
-    </section>
-  </main>
+<main>
+  <h2>Why You Should Work With Me</h2>
+  <div class="card">
+    <p>
+      Hello! I’m <strong>Tobi Abass</strong>, a Cloud & Cybersecurity Enthusiast with a growing skill set in Data Science.  
+      I specialize in building secure, scalable cloud solutions and analyzing data to generate meaningful insights.  
+      With hands-on experience in <strong>AWS EC2</strong>, <strong>RDP management</strong>, and <strong>data visualization</strong>,  
+      I bring both technical expertise and problem-solving creativity to every project.  
+      My goal is to leverage these skills to deliver impactful and innovative solutions.
+    </p>
+  </div>
 
-  <footer>
-    <div class="social-links">
-      <a href="https://x.com/KoreaNotKorean" target="_blank"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://www.instagram.com/continuetotreasure" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/oluwatobi-abass-056684312" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:abasstobi6@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="tel:+254742673394"><i class="fas fa-phone"></i></a>
-    </div>
-    &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
-  </footer>
+  <h2>Watch My Elevator Pitch</h2>
+  <div class="embed-container">
+    <iframe 
+      src="https://www.youtube.com/embed/LmU8TxEsPl0?si=cMe_o8qr6b2zqr6H" 
+      title="YouTube video player" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 Tobi Abass | Built with GitHub Pages
+</footer>
+
 </body>
 </html>
