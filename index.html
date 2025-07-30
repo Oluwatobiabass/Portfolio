@@ -122,6 +122,28 @@
       margin-bottom: 10px;
     }
 
+    .extra-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .btn-link {
+      text-decoration: none;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      font-weight: 500;
+    }
+
+    .btn-link:hover {
+      background-color: var(--hover-accent);
+    }
+
     footer {
       text-align: center;
       background: #222;
@@ -164,9 +186,23 @@
         <i class="fas fa-briefcase"></i>
         Explore My Projects
       </a>
+      <a href="https://datascienceportfol.io/abasstobi6" target="_blank" class="explore-card">
+        <i class="fas fa-chart-line"></i>
+        My Data Science Portfolio
+      </a>
       <a href="contact.html" class="explore-card">
         <i class="fas fa-envelope"></i>
         Contact Me
+      </a>
+    </div>
+
+    <!-- Additional Link Buttons Before Footer -->
+    <div class="extra-links">
+      <a href="https://datascienceportfol.io/abasstobi6" target="_blank" class="btn-link">
+        Explore Full Data Science Portfolio
+      </a>
+      <a href="contact.html" class="btn-link">
+        Get in Touch
       </a>
     </div>
   </main>
