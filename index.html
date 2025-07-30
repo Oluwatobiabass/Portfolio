@@ -1,203 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home | Oluwatobi Abass</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f7f9fb;
-      color: #333;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio | Oluwatobi Abass</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+  :root {
+    --accent-color: #00bcd4;
+  }
 
-    header {
-      background-color: #00bcd4;
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+  }
 
-    header h1 {
-      margin: 0;
-    }
+  header {
+    background: var(--accent-color);
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+  }
 
-    nav {
-      margin-top: 10px;
-    }
+  header h1 {
+    margin: 0;
+  }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
+  nav {
+    margin-top: 10px;
+  }
 
-    nav a.active {
-      text-decoration: underline;
-    }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
 
-    .about {
-      padding: 60px 20px;
-      text-align: center;
-    }
+  nav a.active,
+  nav a:hover {
+    color: #ffeb3b;
+  }
 
-    .profile-img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
+  main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
+  h2 {
+    text-align: center;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+  }
 
-    /* Book Flip Card Styles */
-    .book-wrapper {
-      perspective: 1200px;
-      margin: 40px auto;
-      max-width: 600px;
-      min-height: 360px;
-      position: relative;
-    }
+  /* Slider container */
+  .slider {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 60px;
+  }
 
-    .book {
-      width: 100%;
-      min-height: 350px;
-      margin: 0 auto;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 1s;
-      cursor: pointer;
-    }
+  /* Container holding the cards horizontally */
+  .slides-container {
+    display: flex;
+    gap: 30px;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
 
-    .book:hover {
-      transform: rotateY(180deg);
-    }
+  /* Hide scrollbar but keep functionality */
+  .slides-container::-webkit-scrollbar {
+    display: none;
+  }
+  .slides-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-    .book-front, .book-back {
-      background: #fff;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-      width: 100%;
-      min-height: 350px;
-      backface-visibility: hidden;
-      box-sizing: border-box;
-    }
+  /* Project card styles with fade-in */
+  .project-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    flex: 0 0 280px; /* fixed width for stacked cards */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    text-align: center;
+  }
 
-    .book-front {
-      z-index: 2;
-      position: relative;
-    }
+  .project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    .book-back {
-      transform: rotateY(180deg);
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+  .project-card h3 {
+    margin-bottom: 15px;
+    color: var(--accent-color);
+  }
 
-    .btn {
-      margin: 10px;
-      padding: 10px 18px;
-      background-color: #00bcd4;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-    }
+  .project-card p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
 
-    footer {
-      background-color: #222;
-      color: #ccc;
-      text-align: center;
-      padding: 20px;
-      margin-top: 60px;
-    }
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
 
-    .social-links a {
-      margin: 0 10px;
-      color: #00bcd4;
-      text-decoration: none;
+  .btn:hover {
+    background-color: #0097a7;
+  }
+
+  .embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+
+  .embed-container iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px;
+  }
+
+  /* Slider buttons */
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--accent-color);
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+  }
+
+  .slider-btn:hover {
+    background-color: #0097a7;
+  }
+
+  .slider-btn.prev {
+    left: 10px;
+  }
+
+  .slider-btn.next {
+    right: 10px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .project-card {
+      flex: 0 0 80vw; /* nearly full width on small screens */
+    }
+    .slider-btn {
       font-size: 1.2rem;
+      padding: 8px 12px;
     }
-
-    @media (max-width: 600px) {
-      .book-front, .book-back {
-        padding: 20px;
-      }
-      h2 {
-        font-size: 1.6rem;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to Oluwatobi Abass' Website</h1>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="bio.html">Bio</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="elevator.html">Elevator Pitch</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h1>My Portfolio</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="bio.html">Bio</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="elevator.html">Elevator Pitch</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <main>
-    <section class="about">
-      <img src="images/Oluwatobi-Abass-Photo.jpg" alt="Profile Photo" class="profile-img">
-      <h2>Turning Data Into Meaning</h2>
+<main>
+  <section>
+    <h2>Projects & Contributions</h2>
+    <p style="text-align:center; max-width:600px; margin:auto 0 40px;">
+      Here are some highlighted projects showcasing my expertise in <strong>cloud engineering</strong>, <strong>data science</strong>, and <strong>API development</strong>.
+    </p>
 
-      <div class="book-wrapper">
-        <div class="book">
-          <div class="book-front">
-            <h3>Click to Open</h3>
-            <p>See how I turn raw data into real impact.</p>
+    <div class="slider">
+      <button class="slider-btn prev" aria-label="Previous projects"><i class="fas fa-chevron-left"></i></button>
+      <div class="slides-container">
+        <div class="project-card">
+          <h3>UPS API Shipping App</h3>
+          <p>A cloud-integrated API application built using AWS developer tools to streamline shipping operations.</p>
+          <div class="embed-container">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vROfT2ZHumlAwqkkY8DxgBRyA4xatjEbL79s6koZBnmc9v8JW-9TenZxbT_dW9FT35ooQhzJRFjEe8b/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
           </div>
-          <div class="book-back">
-            <p>
-              Turning raw data into meaningful visuals, actionable insights, and secure systems.  
-              I bring technology and storytelling together—one solution at a time.  
-              I’m a passionate <strong>Cloud & Cybersecurity Enthusiast</strong> and aspiring <strong>Data Scientist</strong>.  
-              With hands-on experience in <strong>AWS EC2</strong> management, <strong>data visualization</strong>,  
-              and <strong>system automation</strong>, I build solutions that combine  
-              technology, security, and data insights.
-            </p>
-
-            <h3>Career Highlights</h3>
-            <ul>
-              <li>Deployed and automated cloud environments using AWS EC2 and RDP.</li>
-              <li>Developed data visualization projects to uncover actionable insights.</li>
-              <li>Exploring cybersecurity strategies like system hardening and threat detection.</li>
-            </ul>
-
-            <p>
-              <a href="https://datascienceportfol.io/abasstobi6" target="_blank" class="btn">Explore My Portfolio</a>
-              <a href="contact.html" class="btn">Get in Touch</a>
-            </p>
+          <a href="https://github.com/YourGitHubUsername/ups-api-shipping" class="btn" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project-card">
+          <h3>Cloud Systems Management</h3>
+          <p>Hands-on experience managing and automating Windows environments using AWS EC2 and RDP configurations.</p>
+          <div class="embed-container">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRhE-r4VxoC_W9y4p7wrN_0fWGVv00dS5t4oeBE1UuHqO0-YXzotKwqhbP2TzdzctgQQO4tSyMtLXQV/pubembed?start=false&loop=false&delayms=3000" allowfullscreen></iframe>
+          </div>
+          <a href="https://github.com/YourGitHubUsername/cloud-systems" class="btn" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project-card">
+          <h3>Data Science Projects</h3>
+          <p>Data interpretation and visualization projects focused on uncovering actionable insights from datasets.</p>
+          <div class="embed-container">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS3W41T6l9khqqF4vmyTxBG2dhRF4fOB75oHoHzyrew7XPPPo-Ref7BLYVSQoHK4miSn8wmsmuY6nx0/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
+          </div>
+          <a href="https://github.com/YourGitHubUsername/data-science-projects" class="btn" target="_blank">Explore on GitHub</a>
+        </div>
+        <div class="project-card">
+          <h3>Team Presentation Contribution</h3>
+          <p>Contributed to team-based presentation projects showcasing problem-solving and strategic planning.</p>
+          <div class="embed-container">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSO6e-avqKc6_7wzArRjYCcXwYxG3RHdyGJ_jE4luvft7Yj7XspEvETPXtB-wcLoiIzLaNYXuvCY_9b/pubembed?start=false&loop=true&delayms=3000" allowfullscreen></iframe>
+          </div>
+          <a href="https://github.com/YourGitHubUsername/team-projects" class="btn" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project-card">
+          <h3>Wireframe & Design Prototype</h3>
+          <p>Created and designed a wireframe prototype using Miro to visualize application workflows and UX planning.</p>
+          <div class="embed-container">
+            <iframe src="https://miro.com/app/live-embed/uXjVImLQDbY=/?embedMode=view_only_without_ui&moveToViewport=-5635,12,5193,2349&embedId=612545126388" allowfullscreen></iframe>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="social-links">
-      <a href="https://x.com/KoreaNotKorean" target="_blank"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://www.instagram.com/continuetotreasure" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/oluwatobi-abass-056684312" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:abasstobi6@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="tel:+254742673394"><i class="fas fa-phone"></i></a>
+      <button class="slider-btn next" aria-label="Next projects"><i class="fas fa-chevron-right"></i></button>
     </div>
-    &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
-  </footer>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
+</footer>
+
+<script>
+  // Fade-in animation on scroll
+  const cards = document.querySelectorAll('.project-card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => observer.observe(card));
+
+  // Slider scroll by card width + gap
+  const slidesContainer = document.querySelector('.slides-container');
+  const prevBtn = document.querySelector('.slider-btn.prev');
+  const nextBtn = document.querySelector('.slider-btn.next');
+
+  // Get width of one card + gap
+  function getScrollAmount() {
+    const cardStyle = getComputedStyle(cards[0]);
+    const cardWidth = cards[0].offsetWidth;
+    const gap = parseInt(cardStyle.marginRight) || 30; // fallback to 30 if marginRight undefined
+    return cardWidth + gap;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    slidesContainer.scrollBy({
+      left: -getScrollAmount(),
+      behavior: 'smooth'
+    });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    slidesContainer.scrollBy({
+      left: getScrollAmount(),
+      behavior: 'smooth'
+    });
+  });
+</script>
 </body>
 </html>
