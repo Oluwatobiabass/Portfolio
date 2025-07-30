@@ -8,6 +8,7 @@
   <style>
     :root {
       --accent-color: #00bcd4;
+      --hover-accent: #0097a7;
     }
 
     body {
@@ -69,20 +70,23 @@
     .slides-container {
       display: flex;
       transition: transform 0.5s ease-in-out;
-      gap: 30px;
       padding: 20px 0;
+      /* Remove gap and use margin-right on cards instead */
     }
 
     .project-card {
-      min-width: 100%;
-      flex-shrink: 0;
+      flex: 0 0 100%;
       background: #fff;
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       text-align: center;
-      opacity: 1 !important;
-      transform: none !important;
+      margin-right: 30px;
+      /* Remove margin-right on last-child */
+    }
+
+    .project-card:last-child {
+      margin-right: 0;
     }
 
     .project-card h3 {
@@ -107,8 +111,10 @@
       transition: background-color 0.3s ease;
     }
 
-    .btn:hover {
-      background-color: #0097a7;
+    .btn:hover,
+    .btn:focus {
+      background-color: var(--hover-accent);
+      outline: none;
     }
 
     .embed-container {
@@ -145,8 +151,16 @@
       z-index: 10;
     }
 
-    .slider-btn:hover {
-      background-color: #0097a7;
+    .slider-btn:hover,
+    .slider-btn:focus {
+      background-color: var(--hover-accent);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0,188,212,0.5);
+    }
+
+    .slider-btn:focus {
+      outline: 3px solid var(--accent-color);
+      outline-offset: 2px;
     }
 
     .slider-btn.prev {
@@ -176,11 +190,13 @@
       transition: color 0.3s ease;
     }
 
-    .social-links a:hover {
-      color: #0097a7;
+    .social-links a:hover,
+    .social-links a:focus {
+      color: var(--hover-accent);
+      outline: none;
     }
 
-    /* New Explore Cards Section */
+    /* Explore Cards Section */
     .explore-cards {
       display: flex;
       justify-content: center;
@@ -207,9 +223,11 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .explore-card:hover {
+    .explore-card:hover,
+    .explore-card:focus {
       transform: scale(1.05);
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      outline: none;
     }
 
     .explore-card i {
@@ -254,78 +272,75 @@
   </header>
 
   <main>
-    <section>
+    <section class="slider" role="region" aria-label="Portfolio project slider">
       <h2>Projects & Contributions</h2>
       <p style="text-align:center; max-width:600px; margin:auto 0 40px;">
         Here are some highlighted projects showcasing my expertise in <strong>cloud engineering</strong>, <strong>data science</strong>, and <strong>API development</strong>.
       </p>
 
-      <div class="slider">
-        <button class="slider-btn prev" aria-label="Previous project"><i class="fas fa-chevron-left"></i></button>
-        <div class="slides-container">
-          <div class="project-card">
-            <h3>UPS API Shipping App</h3>
-            <p>A cloud-integrated API application built using AWS developer tools to streamline shipping operations.</p>
-            <div class="embed-container">
-              <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vROfT2ZHumlAwqkkY8DxgBRyA4xatjEbL79s6koZBnmc9v8JW-9TenZxbT_dW9FT35ooQhzJRFjEe8b/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
-            </div>
-            <a href="https://github.com/YourGitHubUsername/ups-api-shipping" class="btn" target="_blank">View on GitHub</a>
+      <button class="slider-btn prev" aria-label="Previous project"><i class="fas fa-chevron-left"></i></button>
+      <div class="slides-container">
+        <div class="project-card" tabindex="0">
+          <h3>UPS API Shipping App</h3>
+          <p>A cloud-integrated API application built using AWS developer tools to streamline shipping operations.</p>
+          <div class="embed-container">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vROfT2ZHumlAwqkkY8DxgBRyA4xatjEbL79s6koZBnmc9v8JW-9TenZxbT_dW9FT35ooQhzJRFjEe8b/pubembed?start=true&loop=false&delayms=3000" allowfullscreen title="UPS API Shipping App Presentation"></iframe>
           </div>
-          <div class="project-card">
-            <h3>Cloud Systems Management</h3>
-            <p>Hands-on experience managing and automating Windows environments using AWS EC2 and RDP configurations.</p>
-            <div class="embed-container">
-              <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRhE-r4VxoC_W9y4p7wrN_0fWGVv00dS5t4oeBE1UuHqO0-YXzotKwqhbP2TzdzctgQQO4tSyMtLXQV/pubembed?start=false&loop=false&delayms=3000" allowfullscreen></iframe>
-            </div>
-            <a href="https://github.com/YourGitHubUsername/cloud-systems" class="btn" target="_blank">View on GitHub</a>
+          <a href="https://github.com/YourGitHubUsername/ups-api-shipping" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </div>
+        <div class="project-card" tabindex="0">
+          <h3>Cloud Systems Management</h3>
+          <p>Hands-on experience managing and automating Windows environments using AWS EC2 and RDP configurations.</p>
+          <div class="embed-container">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRhE-r4VxoC_W9y4p7wrN_0fWGVv00dS5t4oeBE1UuHqO0-YXzotKwqhbP2TzdzctgQQO4tSyMtLXQV/pubembed?start=false&loop=false&delayms=3000" allowfullscreen title="Cloud Systems Management Presentation"></iframe>
           </div>
-          <div class="project-card">
-            <h3>Data Science Projects</h3>
-            <p>Data interpretation and visualization projects focused on uncovering actionable insights from datasets.</p>
-            <div class="embed-container">
-              <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS3W41T6l9khqqF4vmyTxBG2dhRF4fOB75oHoHzyrew7XPPPo-Ref7BLYVSQoHK4miSn8wmsmuY6nx0/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
-            </div>
-            <a href="https://github.com/YourGitHubUsername/data-science-projects" class="btn" target="_blank">Explore on GitHub</a>
+          <a href="https://github.com/YourGitHubUsername/cloud-systems" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </div>
+        <div class="project-card" tabindex="0">
+          <h3>Data Science Projects</h3>
+          <p>Data interpretation and visualization projects focused on uncovering actionable insights from datasets.</p>
+          <div class="embed-container">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS3W41T6l9khqqF4vmyTxBG2dhRF4fOB75oHoHzyrew7XPPPo-Ref7BLYVSQoHK4miSn8wmsmuY6nx0/pubembed?start=true&loop=false&delayms=3000" allowfullscreen title="Data Science Projects Presentation"></iframe>
           </div>
-          <div class="project-card">
-            <h3>Team Presentation Contribution</h3>
-            <p>Contributed to team-based presentation projects showcasing problem-solving and strategic planning.</p>
-            <div class="embed-container">
-              <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSO6e-avqKc6_7wzArRjYCcXwYxG3RHdyGJ_jE4luvft7Yj7XspEvETPXtB-wcLoiIzLaNYXuvCY_9b/pubembed?start=false&loop=true&delayms=3000" allowfullscreen></iframe>
-            </div>
-            <a href="https://github.com/YourGitHubUsername/team-projects" class="btn" target="_blank">View on GitHub</a>
+          <a href="https://github.com/YourGitHubUsername/data-science-projects" class="btn" target="_blank" rel="noopener noreferrer">Explore on GitHub</a>
+        </div>
+        <div class="project-card" tabindex="0">
+          <h3>Team Presentation Contribution</h3>
+          <p>Contributed to team-based presentation projects showcasing problem-solving and strategic planning.</p>
+          <div class="embed-container">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSO6e-avqKc6_7wzArRjYCcXwYxG3RHdyGJ_jE4luvft7Yj7XspEvETPXtB-wcLoiIzLaNYXuvCY_9b/pubembed?start=false&loop=true&delayms=3000" allowfullscreen title="Team Presentation Contribution"></iframe>
           </div>
-          <div class="project-card">
-            <h3>Wireframe & Design Prototype</h3>
-            <p>Created and designed a wireframe prototype using Miro to visualize application workflows and UX planning.</p>
-            <div class="embed-container">
-              <iframe src="https://miro.com/app/live-embed/uXjVImLQDbY=/?embedMode=view_only_without_ui&moveToViewport=-5635,12,5193,2349&embedId=612545126388" allowfullscreen></iframe>
-            </div>
+          <a href="https://github.com/YourGitHubUsername/team-projects" class="btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </div>
+        <div class="project-card" tabindex="0">
+          <h3>Wireframe & Design Prototype</h3>
+          <p>Created and designed a wireframe prototype using Miro to visualize application workflows and UX planning.</p>
+          <div class="embed-container">
+            <iframe src="https://miro.com/app/live-embed/uXjVImLQDbY=/?embedMode=view_only_without_ui&moveToViewport=-5635,12,5193,2349&embedId=612545126388" allowfullscreen title="Wireframe & Design Prototype"></iframe>
           </div>
         </div>
-        <button class="slider-btn next" aria-label="Next project"><i class="fas fa-chevron-right"></i></button>
       </div>
+      <button class="slider-btn next" aria-label="Next project"><i class="fas fa-chevron-right"></i></button>
 
-      <!-- NEW: Explore Portfolio and Contact Cards -->
-      <div class="explore-cards">
-        <a href="https://datascienceportfol.io/abasstobi6" target="_blank" class="explore-card" aria-label="Explore my data science portfolio">
-          <i class="fas fa-chart-line"></i>
+      <!-- Explore Portfolio and Contact Cards -->
+      <div class="explore-cards" style="margin-top:40px;">
+        <a href="https://datascienceportfol.io/abasstobi6" target="_blank" rel="noopener noreferrer" class="explore-card" aria-label="Explore my data science portfolio">
+          <i class="fas fa-chart-line" aria-hidden="true"></i>
           Explore My Portfolio
         </a>
         <a href="contact.html" class="explore-card" aria-label="Contact me">
-          <i class="fas fa-envelope"></i>
+          <i class="fas fa-envelope" aria-hidden="true"></i>
           Contact Me
         </a>
       </div>
-
     </section>
 
-    <section class="social-links">
+    <section class="social-links" aria-label="Social media links">
       <h2>Connect with Me</h2>
-      <a href="mailto:abasstobi6@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-      <a href="https://x.com/KoreaNotKorean" target="_blank"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://www.instagram.com/continuetotreasure" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/oluwatobi-abass-056684312" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:abasstobi6@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Send email"><i class="fas fa-envelope"></i></a>
+      <a href="https://x.com/KoreaNotKorean" target="_blank" rel="noopener noreferrer" aria-label="X Twitter profile"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/continuetotreasure" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/oluwatobi-abass-056684312" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
     </section>
   </main>
 
