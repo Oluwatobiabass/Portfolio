@@ -77,12 +77,12 @@
     }
     .tools-expertise {
       max-width: 700px;
-      margin: 0 auto 60px;
+      margin: 0 auto 20px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 25px;
-      text-align: left; /* align text left for better readability */
+      text-align: left;
     }
     .tool-card {
       background: #fff;
@@ -93,11 +93,12 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       font-weight: 600;
       color: var(--accent-color);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
       display: flex;
       align-items: center;
       gap: 10px;
+      cursor: pointer;
+      user-select: none;
     }
     .tool-card:hover {
       transform: translateY(-5px);
@@ -105,9 +106,56 @@
     }
     .tool-card i {
       font-size: 1.5rem;
-      min-width: 24px; /* keep icon size consistent */
+      min-width: 24px;
       text-align: center;
     }
+    .tool-card.active {
+      border-color: var(--hover-accent);
+      box-shadow: 0 0 15px var(--hover-accent);
+      transform: translateY(-8px) scale(1.05);
+      background-color: #e0f7fa;
+    }
+
+    /* Info box */
+    #tool-info {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      padding: 20px 25px;
+      border: 2px solid var(--hover-accent);
+      border-radius: 12px;
+      color: var(--hover-accent);
+      font-weight: 500;
+      font-size: 1.1rem;
+      background: #e0f7fa;
+      box-shadow: 0 4px 15px rgba(0,151,167,0.3);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      position: relative;
+      display: none;
+    }
+    #tool-info.show {
+      opacity: 1;
+      transform: translateY(0);
+      display: block;
+    }
+
+    /* Close button */
+    #tool-info button.close-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--hover-accent);
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    #tool-info button.close-btn:hover {
+      color: var(--accent-color);
+    }
+
     .social-links {
       text-align: center;
       margin: 50px 0 20px;
@@ -169,16 +217,21 @@
     </section>
 
     <section class="tools-expertise">
-      <div class="tool-card"><i class="fab fa-python" aria-hidden="true"></i>Python & Data Analysis</div>
-      <div class="tool-card"><i class="fab fa-aws" aria-hidden="true"></i>AWS Cloud Deployment</div>
-      <div class="tool-card"><i class="fas fa-shield-alt" aria-hidden="true"></i>Cybersecurity Labs</div>
-      <div class="tool-card"><i class="fas fa-plug" aria-hidden="true"></i>API Development</div>
-      <div class="tool-card"><i class="fab fa-linux" aria-hidden="true"></i>Linux & Windows Systems</div>
-      <div class="tool-card"><i class="fas fa-chart-bar" aria-hidden="true"></i>Data Visualization</div>
-      <div class="tool-card"><i class="fab fa-java" aria-hidden="true"></i>Java Programming</div>
-      <div class="tool-card"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>QuickBooks</div>
-      <div class="tool-card"><i class="fas fa-database" aria-hidden="true"></i>Database Management</div>
+      <div class="tool-card" tabindex="0"><i class="fab fa-python" aria-hidden="true"></i>Python & Data Analysis</div>
+      <div class="tool-card" tabindex="0"><i class="fab fa-aws" aria-hidden="true"></i>AWS Cloud Deployment</div>
+      <div class="tool-card" tabindex="0"><i class="fas fa-shield-alt" aria-hidden="true"></i>Cybersecurity Labs</div>
+      <div class="tool-card" tabindex="0"><i class="fas fa-plug" aria-hidden="true"></i>API Development</div>
+      <div class="tool-card" tabindex="0"><i class="fab fa-linux" aria-hidden="true"></i>Linux & Windows Systems</div>
+      <div class="tool-card" tabindex="0"><i class="fas fa-chart-bar" aria-hidden="true"></i>Data Visualization</div>
+      <div class="tool-card" tabindex="0"><i class="fab fa-java" aria-hidden="true"></i>Java Programming</div>
+      <div class="tool-card" tabindex="0"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>QuickBooks</div>
+      <div class="tool-card" tabindex="0"><i class="fas fa-database" aria-hidden="true"></i>Database Management</div>
     </section>
+
+    <div id="tool-info" role="region" aria-live="polite" aria-label="Tool details">
+      <button class="close-btn" aria-label="Close details">&times;</button>
+      <p id="info-text"></p>
+    </div>
 
     <section class="social-links">
       <h2>Connect with Me</h2>
@@ -192,5 +245,67 @@
   <footer>
     &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
   </footer>
+
+  <script>
+    const toolCards = document.querySelectorAll('.tool-card');
+    const infoBox = document.getElementById('tool-info');
+    const infoText = document.getElementById('info-text');
+    const closeBtn = infoBox.querySelector('.close-btn');
+
+    const descriptions = {
+      "Python & Data Analysis": "I use Python extensively for data analysis, automation scripts, and building machine learning models.",
+      "AWS Cloud Deployment": "Deploy scalable cloud solutions using AWS services like EC2, S3, and Lambda.",
+      "Cybersecurity Labs": "Hands-on labs to strengthen my skills in securing systems and networks.",
+      "API Development": "Develop RESTful APIs to connect frontend and backend applications securely and efficiently.",
+      "Linux & Windows Systems": "Manage and configure both Linux and Windows operating systems.",
+      "Data Visualization": "Create insightful data visualizations to communicate complex data effectively.",
+      "Java Programming": "Write robust Java applications with a focus on backend development.",
+      "QuickBooks": "Manage financial data and bookkeeping using QuickBooks.",
+      "Database Management": "Design, implement, and maintain efficient database systems."
+    };
+
+    // Remove active class from all cards
+    function clearActive() {
+      toolCards.forEach(card => card.classList.remove('active'));
+    }
+
+    // Show info box with description
+    function showInfo(text) {
+      infoText.textContent = text;
+      infoBox.classList.add('show');
+      infoBox.focus();
+      infoBox.scrollIntoView({behavior: 'smooth', block: 'center'});
+    }
+
+    // Hide info box
+    function hideInfo() {
+      infoBox.classList.remove('show');
+      clearActive();
+    }
+
+    toolCards.forEach(card => {
+      card.addEventListener('click', () => {
+        clearActive();
+        card.classList.add('active');
+        const key = card.textContent.trim();
+        showInfo(descriptions[key] || "More info coming soon!");
+      });
+      card.addEventListener('keypress', (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', hideInfo);
+
+    // Optional: hide info box if clicked outside of it or cards
+    document.addEventListener('click', (e) => {
+      if (!infoBox.contains(e.target) && ![...toolCards].some(card => card.contains(e.target))) {
+        hideInfo();
+      }
+    });
+  </script>
 </body>
 </html>
