@@ -5,77 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bio | Oluwatobi Abass</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  <!-- FontAwesome -->
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    :root {
-      --accent-color: #00bcd4;
-      --hover-accent: #0097a7;
-      --text-color: #333;
-      --background-color: #f9f9f9;
-      --font-family: 'Poppins', sans-serif;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
-      font-family: var(--font-family);
-      background: var(--background-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px 40px;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
     }
 
     header {
-      background: var(--accent-color);
-      color: #fff;
+      background: #00bcd4;
+      color: white;
       padding: 20px;
       text-align: center;
-      border-radius: 0 0 12px 12px;
-    }
-
-    header h1 { font-size: 2rem; margin-bottom: 10px; }
-
-    nav {
-      margin-top: 10px;
+      border-radius: 0 0 20px 20px;
     }
 
     nav a {
-      color: #fff;
-      text-decoration: none;
+      color: white;
       margin: 0 15px;
+      text-decoration: none;
       font-weight: bold;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
     }
 
     nav a.active,
     nav a:hover {
-      color: #ffeb3b;
+      text-decoration: underline;
     }
 
     .profile-img {
-      display: block;
-      max-width: 160px;
-      margin: 30px auto;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      margin: 30px auto 10px;
+      display: block;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     }
 
     .flip-card {
       background: transparent;
-      width: 100%;
-      max-width: 800px;
-      height: 180px;
+      width: 90%;
+      max-width: 700px;
+      height: 200px;
       perspective: 1000px;
       margin: 20px auto;
-      cursor: pointer;
-      border-radius: 12px;
     }
 
     .flip-card-inner {
@@ -84,13 +62,6 @@
       height: 100%;
       transition: transform 0.6s ease;
       transform-style: preserve-3d;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 30px 25px;
     }
 
     .flip-card.flipped .flip-card-inner {
@@ -102,29 +73,27 @@
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
-      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0 20px;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      background: white;
     }
 
     .flip-card-front {
-      color: var(--accent-color);
-      font-weight: 700;
       font-size: 1.3rem;
-      border: 2px solid var(--accent-color);
-      background: white;
+      font-weight: 600;
+      color: #00bcd4;
+      border: 2px solid #00bcd4;
     }
 
     .flip-card-back {
-      color: #444;
       transform: rotateY(180deg);
       font-size: 1rem;
-      line-height: 1.5;
-      border: 2px solid var(--accent-color);
-      background: white;
-      text-align: center;
+      color: #444;
+      border: 2px solid #00bcd4;
     }
 
     .social-links {
@@ -133,31 +102,25 @@
     }
 
     .social-links a {
-      margin: 0 15px;
-      color: var(--accent-color);
-      font-size: 1.8rem;
-      transition: color 0.3s ease;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: #00bcd4;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
 
     .social-links a:hover {
-      color: var(--hover-accent);
+      color: #008b9c;
     }
 
     footer {
       text-align: center;
       background: #222;
-      color: #fff;
+      color: white;
       padding: 15px 0;
-      font-size: 0.9rem;
+      border-radius: 20px 20px 0 0;
       margin-top: 40px;
-      border-radius: 12px 12px 0 0;
-    }
-
-    @media (max-width: 600px) {
-      .flip-card {
-        height: 220px;
-      }
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -174,89 +137,86 @@
   </nav>
 </header>
 
-<main>
+<img src="images/Oluwatobi-Abass-Photo.jpg" alt="Oluwatobi Abass" class="profile-img" />
 
-  <img src="images/Oluwatobi-Abass-Photo.jpg" alt="Photo of Oluwatobi Abass" class="profile-img" />
-
-  <!-- Flip cards: Bio content only -->
-  <div class="flip-card" tabindex="0">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">Who I Am</div>
-      <div class="flip-card-back">
-        I’m an aspiring <strong>Cloud and Cybersecurity Specialist</strong> with a growing passion for data science. Currently enrolled in the <strong>ALX Software Engineering Program</strong>, I build secure, resilient, and innovative digital solutions.
-      </div>
+<!-- Bio Flip Cards -->
+<div class="flip-card" tabindex="0">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">Who I Am</div>
+    <div class="flip-card-back">
+      I’m an aspiring Cloud and Cybersecurity Specialist passionate about secure systems and innovation. I’m currently enrolled in the ALX Software Engineering Program.
     </div>
   </div>
+</div>
 
-  <div class="flip-card" tabindex="0">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">What Makes Me Unique</div>
-      <div class="flip-card-back">
-        I blend cloud tech, cybersecurity, and data insights with a problem-solving mindset. I adapt quickly, learn continuously, and create value with every project.
-      </div>
+<div class="flip-card" tabindex="0">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">What Makes Me Unique</div>
+    <div class="flip-card-back">
+      I combine cloud tech, cybersecurity, and data insights with a practical mindset. I'm driven by continuous learning and solving real-world tech problems.
     </div>
   </div>
+</div>
 
-  <div class="flip-card" tabindex="0">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">My Passion</div>
-      <div class="flip-card-back">
-        Technology is my tool to solve real-world problems. Cloud engineering scales systems, cybersecurity safeguards, and data science uncovers stories hidden in numbers.
-      </div>
+<div class="flip-card" tabindex="0">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">My Passion</div>
+    <div class="flip-card-back">
+      I see technology as a tool for change. From system administration to cloud deployments, I thrive on building impactful solutions.
     </div>
   </div>
+</div>
 
-  <div class="flip-card" tabindex="0">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">How My Work Enables My Passion</div>
-      <div class="flip-card-back">
-        I’ve deployed and managed Windows instances on AWS EC2, configured RDP connections, run Windows apps on Linux cloud hosts, and completed secure system administration projects.
-      </div>
+<div class="flip-card" tabindex="0">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">How My Work Enables Passion</div>
+    <div class="flip-card-back">
+      I’ve deployed EC2 instances, configured Windows RDP, and run Windows apps on Linux. I’ve completed ALX projects in secure computing environments.
     </div>
   </div>
+</div>
 
-  <div class="flip-card" tabindex="0">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">Goals and Aspirations</div>
-      <div class="flip-card-back">
-        My goal is to complete the ALX program, earn certifications like CCNA, and gain internships to build secure infrastructures addressing Africa’s digital challenges.
-      </div>
+<div class="flip-card" tabindex="0">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">Goals & Aspirations</div>
+    <div class="flip-card-back">
+      My goal is to complete the ALX program, earn CCNA certification, and build secure systems that address Africa’s growing tech needs.
     </div>
   </div>
+</div>
 
-  <div class="flip-card" tabindex="0">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">Personal Reflection</div>
-      <div class="flip-card-back">
-        I’ve faced imposter syndrome but learned to focus on effort and growth, recognizing every step forward as part of my success journey.
-      </div>
+<div class="flip-card" tabindex="0">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">Personal Reflection</div>
+    <div class="flip-card-back">
+      I've faced imposter syndrome and overcome it by focusing on growth, discipline, and celebrating small wins on my journey.
     </div>
   </div>
+</div>
 
-  <div class="flip-card" tabindex="0">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">Core Strengths</div>
-      <div class="flip-card-back">
-        Resourceful, adaptive, and committed to improvement. My curiosity and discipline help me learn new tech and innovate in challenges.
-      </div>
+<div class="flip-card" tabindex="0">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">Core Strengths</div>
+    <div class="flip-card-back">
+      Adaptable. Resourceful. Curious. I tackle challenges head-on, learn quickly, and bring energy and perspective to any tech team.
     </div>
   </div>
+</div>
 
-  <!-- Social media -->
-  <section class="social-links">
-    <a href="mailto:abasstobi6@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-    <a href="https://x.com/KoreaNotKorean" target="_blank"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://www.instagram.com/continuetotreasure" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/in/oluwatobi-abass-056684312" target="_blank"><i class="fab fa-linkedin"></i></a>
-  </section>
-
-</main>
+<!-- Social Icons -->
+<div class="social-links">
+  <a href="mailto:abasstobi6@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+  <a href="https://x.com/KoreaNotKorean" target="_blank"><i class="fab fa-x-twitter"></i></a>
+  <a href="https://www.instagram.com/continuetotreasure" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.linkedin.com/in/oluwatobi-abass-056684312" target="_blank"><i class="fab fa-linkedin"></i></a>
+</div>
 
 <footer>
-  &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
+  &copy; 2025 Oluwatobi Abass | Built with 💻 and GitHub Pages
 </footer>
 
 <script>
+  // Flip animation trigger on click or Enter key
   document.querySelectorAll('.flip-card').forEach(card => {
     card.addEventListener('click', () => {
       card.classList.toggle('flipped');
