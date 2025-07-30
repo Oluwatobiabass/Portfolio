@@ -58,27 +58,31 @@
       margin-bottom: 30px;
     }
 
-    /* Projects container vertical stacking */
-    .projects {
+    /* Slider styles */
+    .slider {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto 60px;
+      overflow: hidden;
+    }
+
+    .slides-container {
       display: flex;
-      flex-direction: column;
-      gap: 40px;
+      transition: transform 0.5s ease-in-out;
+      gap: 30px;
+      padding: 20px 0;
     }
 
     .project-card {
+      min-width: 100%;
+      flex-shrink: 0;
       background: #fff;
       padding: 25px;
       border-radius: 12px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       text-align: center;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .project-card.visible {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 1 !important; /* override fade-in animation for slider */
+      transform: none !important;
     }
 
     .project-card h3 {
@@ -123,6 +127,34 @@
       width: 100%;
       height: 100%;
       border: 0;
+      border-radius: 10px;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: var(--accent-color);
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      z-index: 10;
+    }
+
+    .slider-btn:hover {
+      background-color: #0097a7;
+    }
+
+    .slider-btn.prev {
+      left: 10px;
+    }
+
+    .slider-btn.next {
+      right: 10px;
     }
 
     /* Social Links */
@@ -156,6 +188,14 @@
       font-size: 0.9rem;
       margin-top: 60px;
     }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .slider-btn {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -177,50 +217,50 @@
         Here are some highlighted projects showcasing my expertise in <strong>cloud engineering</strong>, <strong>data science</strong>, and <strong>API development</strong>.
       </p>
 
-      <div class="projects">
-        <div class="project-card">
-          <h3>UPS API Shipping App</h3>
-          <p>A cloud-integrated API application built using AWS developer tools to streamline shipping operations.</p>
-          <div class="embed-container">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vROfT2ZHumlAwqkkY8DxgBRyA4xatjEbL79s6koZBnmc9v8JW-9TenZxbT_dW9FT35ooQhzJRFjEe8b/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
+      <div class="slider">
+        <button class="slider-btn prev" aria-label="Previous project"><i class="fas fa-chevron-left"></i></button>
+        <div class="slides-container">
+          <div class="project-card">
+            <h3>UPS API Shipping App</h3>
+            <p>A cloud-integrated API application built using AWS developer tools to streamline shipping operations.</p>
+            <div class="embed-container">
+              <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vROfT2ZHumlAwqkkY8DxgBRyA4xatjEbL79s6koZBnmc9v8JW-9TenZxbT_dW9FT35ooQhzJRFjEe8b/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
+            </div>
+            <a href="https://github.com/YourGitHubUsername/ups-api-shipping" class="btn" target="_blank">View on GitHub</a>
           </div>
-          <a href="https://github.com/YourGitHubUsername/ups-api-shipping" class="btn" target="_blank">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Cloud Systems Management</h3>
-          <p>Hands-on experience managing and automating Windows environments using AWS EC2 and RDP configurations.</p>
-          <div class="embed-container">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRhE-r4VxoC_W9y4p7wrN_0fWGVv00dS5t4oeBE1UuHqO0-YXzotKwqhbP2TzdzctgQQO4tSyMtLXQV/pubembed?start=false&loop=false&delayms=3000" allowfullscreen></iframe>
+          <div class="project-card">
+            <h3>Cloud Systems Management</h3>
+            <p>Hands-on experience managing and automating Windows environments using AWS EC2 and RDP configurations.</p>
+            <div class="embed-container">
+              <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRhE-r4VxoC_W9y4p7wrN_0fWGVv00dS5t4oeBE1UuHqO0-YXzotKwqhbP2TzdzctgQQO4tSyMtLXQV/pubembed?start=false&loop=false&delayms=3000" allowfullscreen></iframe>
+            </div>
+            <a href="https://github.com/YourGitHubUsername/cloud-systems" class="btn" target="_blank">View on GitHub</a>
           </div>
-          <a href="https://github.com/YourGitHubUsername/cloud-systems" class="btn" target="_blank">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Data Science Projects</h3>
-          <p>Data interpretation and visualization projects focused on uncovering actionable insights from datasets.</p>
-          <div class="embed-container">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS3W41T6l9khqqF4vmyTxBG2dhRF4fOB75oHoHzyrew7XPPPo-Ref7BLYVSQoHK4miSn8wmsmuY6nx0/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
+          <div class="project-card">
+            <h3>Data Science Projects</h3>
+            <p>Data interpretation and visualization projects focused on uncovering actionable insights from datasets.</p>
+            <div class="embed-container">
+              <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS3W41T6l9khqqF4vmyTxBG2dhRF4fOB75oHoHzyrew7XPPPo-Ref7BLYVSQoHK4miSn8wmsmuY6nx0/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
+            </div>
+            <a href="https://github.com/YourGitHubUsername/data-science-projects" class="btn" target="_blank">Explore on GitHub</a>
           </div>
-          <a href="https://github.com/YourGitHubUsername/data-science-projects" class="btn" target="_blank">Explore on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Team Presentation Contribution</h3>
-          <p>Contributed to team-based presentation projects showcasing problem-solving and strategic planning.</p>
-          <div class="embed-container">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSO6e-avqKc6_7wzArRjYCcXwYxG3RHdyGJ_jE4luvft7Yj7XspEvETPXtB-wcLoiIzLaNYXuvCY_9b/pubembed?start=false&loop=true&delayms=3000" allowfullscreen></iframe>
+          <div class="project-card">
+            <h3>Team Presentation Contribution</h3>
+            <p>Contributed to team-based presentation projects showcasing problem-solving and strategic planning.</p>
+            <div class="embed-container">
+              <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSO6e-avqKc6_7wzArRjYCcXwYxG3RHdyGJ_jE4luvft7Yj7XspEvETPXtB-wcLoiIzLaNYXuvCY_9b/pubembed?start=false&loop=true&delayms=3000" allowfullscreen></iframe>
+            </div>
+            <a href="https://github.com/YourGitHubUsername/team-projects" class="btn" target="_blank">View on GitHub</a>
           </div>
-          <a href="https://github.com/YourGitHubUsername/team-projects" class="btn" target="_blank">View on GitHub</a>
-        </div>
-
-        <div class="project-card">
-          <h3>Wireframe & Design Prototype</h3>
-          <p>Created and designed a wireframe prototype using Miro to visualize application workflows and UX planning.</p>
-          <div class="embed-container">
-            <iframe src="https://miro.com/app/live-embed/uXjVImLQDbY=/?embedMode=view_only_without_ui&moveToViewport=-5635,12,5193,2349&embedId=612545126388" allowfullscreen></iframe>
+          <div class="project-card">
+            <h3>Wireframe & Design Prototype</h3>
+            <p>Created and designed a wireframe prototype using Miro to visualize application workflows and UX planning.</p>
+            <div class="embed-container">
+              <iframe src="https://miro.com/app/live-embed/uXjVImLQDbY=/?embedMode=view_only_without_ui&moveToViewport=-5635,12,5193,2349&embedId=612545126388" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
+        <button class="slider-btn next" aria-label="Next project"><i class="fas fa-chevron-right"></i></button>
       </div>
     </section>
 
@@ -238,18 +278,25 @@
   </footer>
 
   <script>
-    // Scroll fade-in animation for project cards
-    const cards = document.querySelectorAll('.project-card');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target); // animate once
-        }
-      });
-    }, { threshold: 0.1 });
+    const slidesContainer = document.querySelector('.slides-container');
+    const slides = document.querySelectorAll('.project-card');
+    const prevBtn = document.querySelector('.slider-btn.prev');
+    const nextBtn = document.querySelector('.slider-btn.next');
 
-    cards.forEach(card => observer.observe(card));
+    let currentIndex = 0;
+
+    function updateSlider() {
+      slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+      updateSlider();
+    });
   </script>
 </body>
-</html>
