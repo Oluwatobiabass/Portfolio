@@ -61,19 +61,24 @@
     /* Book Flip Card Styles */
     .book-wrapper {
       perspective: 1200px;
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
+      margin: 40px auto;
+      max-width: 600px;
+      min-height: 360px;
+      position: relative;
     }
 
     .book {
       width: 100%;
-      max-width: 600px;
-      min-height: 320px;
+      min-height: 350px;
+      margin: 0 auto;
       position: relative;
       transform-style: preserve-3d;
       transition: transform 1s;
       cursor: pointer;
+    }
+
+    .book:hover {
+      transform: rotateY(180deg);
     }
 
     .book-front, .book-back {
@@ -81,24 +86,22 @@
       border-radius: 12px;
       padding: 30px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-      position: absolute;
       width: 100%;
+      min-height: 350px;
       backface-visibility: hidden;
-      min-height: 320px;
       box-sizing: border-box;
     }
 
     .book-front {
       z-index: 2;
-      transform: rotateY(0deg);
+      position: relative;
     }
 
     .book-back {
       transform: rotateY(180deg);
-    }
-
-    .book:hover {
-      transform: rotateY(180deg);
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     .btn {
