@@ -82,7 +82,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 25px;
-      text-align: center;
+      text-align: left; /* align text left for better readability */
     }
     .tool-card {
       background: #fff;
@@ -94,10 +94,19 @@
       font-weight: 600;
       color: var(--accent-color);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     .tool-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+    .tool-card i {
+      font-size: 1.5rem;
+      min-width: 24px; /* keep icon size consistent */
+      text-align: center;
     }
     .social-links {
       text-align: center;
@@ -160,15 +169,15 @@
     </section>
 
     <section class="tools-expertise">
-      <div class="tool-card">Python & Data Analysis</div>
-      <div class="tool-card">AWS Cloud Deployment</div>
-      <div class="tool-card">Cybersecurity Labs</div>
-      <div class="tool-card">API Development</div>
-      <div class="tool-card">Linux & Windows Systems</div>
-      <div class="tool-card">Data Visualization</div>
-      <div class="tool-card">Java Programming</div>
-      <div class="tool-card">QuickBooks</div>
-      <div class="tool-card">Database Management</div>
+      <div class="tool-card"><i class="fab fa-python" aria-hidden="true"></i>Python & Data Analysis</div>
+      <div class="tool-card"><i class="fab fa-aws" aria-hidden="true"></i>AWS Cloud Deployment</div>
+      <div class="tool-card"><i class="fas fa-shield-alt" aria-hidden="true"></i>Cybersecurity Labs</div>
+      <div class="tool-card"><i class="fas fa-plug" aria-hidden="true"></i>API Development</div>
+      <div class="tool-card"><i class="fab fa-linux" aria-hidden="true"></i>Linux & Windows Systems</div>
+      <div class="tool-card"><i class="fas fa-chart-bar" aria-hidden="true"></i>Data Visualization</div>
+      <div class="tool-card"><i class="fab fa-java" aria-hidden="true"></i>Java Programming</div>
+      <div class="tool-card"><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>QuickBooks</div>
+      <div class="tool-card"><i class="fas fa-database" aria-hidden="true"></i>Database Management</div>
     </section>
 
     <section class="social-links">
