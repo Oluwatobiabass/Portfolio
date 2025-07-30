@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oluwatobi Abass | Home</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Tobi Abass</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --accent-color: #00bcd4;
       --hover-accent: #0097a7;
       --text-color: #333;
       --background-color: #f9f9f9;
-      --font-family: 'Poppins', Arial, sans-serif;
+      --font-family: 'Poppins', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
@@ -20,19 +26,25 @@
       background: var(--background-color);
       color: var(--text-color);
       line-height: 1.6;
-      margin: 0;
-      padding: 0;
+      padding: 0 20px;
+      max-width: 960px;
+      margin: auto;
     }
 
     header {
       background: var(--accent-color);
       color: #fff;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
+      border-radius: 0 0 12px 12px;
     }
 
     header h1 {
       font-size: 2rem;
+    }
+
+    nav {
+      margin-top: 10px;
     }
 
     nav a {
@@ -40,230 +52,127 @@
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
+      font-size: 1.1rem;
     }
 
+    nav a.active,
     nav a:hover {
       color: #ffeb3b;
     }
 
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
+    .portfolio-section {
+      margin-top: 40px;
     }
 
-    .profile {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .profile img {
-      width: 220px;
-      height: auto;
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      margin-bottom: 15px;
-    }
-
-    .expertise {
-      margin-top: 30px;
-      animation: fadeInUp 0.8s ease forwards;
-      opacity: 0;
-    }
-
-    .expertise h2 {
-      color: var(--accent-color);
-      text-align: center;
-    }
-
-    .expertise ul {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      list-style: none;
-      padding: 0;
-    }
-
-    .expertise li {
-      background: #fff;
+    .project {
+      background: white;
+      border: 2px solid var(--accent-color);
       border-radius: 12px;
       padding: 20px;
-      width: 200px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .expertise li:hover {
+    .project:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
-    .quick-links {
-      margin-top: 60px;
-      padding: 30px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      animation: fadeInUp 0.8s ease forwards;
-      opacity: 0;
+    .project h3 {
+      margin-bottom: 10px;
+      color: var(--accent-color);
     }
 
-    .quick-card-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .quick-card {
-      width: 200px;
-      height: 200px;
-      perspective: 1000px;
-      text-decoration: none;
-    }
-
-    .card-inner {
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-      position: relative;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    }
-
-    .quick-card:hover .card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      background: var(--accent-color);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-radius: 12px;
-      font-weight: bold;
-      padding: 20px;
-      font-size: 1.1rem;
-    }
-
-    .card-front i {
-      font-size: 2.5rem;
+    .project p {
       margin-bottom: 10px;
     }
 
-    .card-back {
-      background: var(--hover-accent);
-      transform: rotateY(180deg);
-      font-size: 0.95rem;
-      text-align: center;
+    .explore-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .explore-card {
+      background: white;
+      border: 2px solid var(--accent-color);
+      border-radius: 12px;
+      width: 280px;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .explore-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .explore-card i {
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
 
     footer {
       text-align: center;
       background: #222;
       color: #fff;
-      padding: 15px 0;
+      padding: 15px;
       margin-top: 60px;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .quick-card-container {
-        flex-direction: column;
-        align-items: center;
-      }
+      border-radius: 12px 12px 0 0;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Oluwatobi Abass</h1>
+    <h1>My Portfolio</h1>
     <nav>
-      <a href="index.html" class="active">Home</a>
+      <a href="index.html">Home</a>
       <a href="bio.html">Bio</a>
-      <a href="portfolio.html">Portfolio</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="elevator.html">Elevator Pitch</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section class="profile">
-      <img src="images/Oluwatobi-Abass-Photo.jpg" alt="Oluwatobi Abass">
-      <p>Welcome to my personal site. I specialize in data science, automation, and shipping operations with hands-on experience in GitHub, QuickBooks, PDF tools, and shipping platforms (FedEx, UPS, USPS).</p>
-    </section>
+  <main class="portfolio-section">
+    <div class="project">
+      <h3>ALX Data Science Program</h3>
+      <p>Completed practical data-driven projects using Python, Pandas, Numpy, and visualization libraries.</p>
+    </div>
+    <div class="project">
+      <h3>AWS Deployment</h3>
+      <p>Provisioned and managed Windows servers on AWS EC2 with RDP, used SSH and Linux tools to run Windows applications.</p>
+    </div>
+    <div class="project">
+      <h3>Cybersecurity Hands-on Labs</h3>
+      <p>Simulated real-world attacks, practiced system hardening, log monitoring, and secure network configurations.</p>
+    </div>
 
-    <section class="expertise">
-      <h2>Expertise</h2>
-      <ul>
-        <li>GitHub & Version Control</li>
-        <li>PDF Tools & Editing</li>
-        <li>QuickBooks Accounting</li>
-        <li>FedEx / UPS / USPS Integration</li>
-        <li>Shipping Platforms</li>
-      </ul>
-    </section>
-
-    <section class="quick-links">
-      <h2 class="section-title">Quick Access</h2>
-      <div class="quick-card-container">
-        <a href="portfolio.html" class="quick-card">
-          <div class="card-inner">
-            <div class="card-front">
-              <i class="fas fa-folder-open"></i>
-              Explore Portfolio
-            </div>
-            <div class="card-back">
-              Projects, case studies, and more.
-            </div>
-          </div>
-        </a>
-        <a href="contact.html" class="quick-card">
-          <div class="card-inner">
-            <div class="card-front">
-              <i class="fas fa-paper-plane"></i>
-              Contact Me
-            </div>
-            <div class="card-back">
-              Reach out for collaboration.
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
+    <!-- Explore Cards Section -->
+    <div class="explore-links">
+      <a href="portfolio.html" class="explore-card">
+        <i class="fas fa-briefcase"></i>
+        Explore My Projects
+      </a>
+      <a href="contact.html" class="explore-card">
+        <i class="fas fa-envelope"></i>
+        Contact Me
+      </a>
+    </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 Oluwatobi Abass. All rights reserved.</p>
+    &copy; 2025 Tobi Abass | Built with GitHub Pages
   </footer>
-
-  <script>
-    ['.expertise', '.quick-links'].forEach(selector => {
-      const section = document.querySelector(selector);
-      if (section) {
-        section.style.opacity = '1';
-        section.style.transform = 'translateY(0)';
-      }
-    });
-  </script>
 </body>
 </html>
