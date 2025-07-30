@@ -24,6 +24,9 @@
     max-width: 900px;
     margin: auto;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
   header {
     background: var(--accent-color);
@@ -65,6 +68,7 @@
   }
   main {
     margin-top: 40px;
+    flex-grow: 1;
   }
   section.expertise {
     background: #fff;
@@ -188,6 +192,35 @@
       margin-bottom: 20px;
     }
   }
+
+  /* Footer */
+  footer {
+    background: var(--accent-color);
+    color: #fff;
+    text-align: center;
+    padding: 15px 20px;
+    border-radius: 12px 12px 0 0;
+    margin-top: 40px;
+  }
+
+  /* Social media icons container */
+  .social-links {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .social-links a {
+    margin: 0 12px;
+    color: #fff;
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+
+  .social-links a:hover {
+    color: #ffeb3b;
+  }
+
 </style>
 </head>
 <body>
@@ -324,6 +357,18 @@
     </ul>
   </section>
 </main>
+
+<!-- Social media icons -->
+<div class="social-links" aria-label="Social media links">
+  <a href="mailto:abasstobi6@gmail.com" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  <a href="https://x.com/KoreaNotKorean" target="_blank" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+  <a href="https://www.instagram.com/continuetotreasure" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.linkedin.com/in/oluwatobi-abass-056684312" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+</div>
+
+<footer>
+  &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
+</footer>
 
 <script>
   // Fade-in animation on page load
