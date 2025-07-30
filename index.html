@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Tobi Abass</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Oluwatobi Abass</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --accent-color: #00bcd4;
@@ -14,13 +14,11 @@
       --background-color: #f9f9f9;
       --font-family: 'Poppins', sans-serif;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: var(--font-family);
       background: var(--background-color);
@@ -30,127 +28,112 @@
       max-width: 960px;
       margin: auto;
     }
-
     header {
       background: var(--accent-color);
-      color: #fff;
-      text-align: center;
       padding: 20px;
+      text-align: center;
+      color: #fff;
       border-radius: 0 0 12px 12px;
     }
-
     header h1 {
-      font-size: 2rem;
+      margin: 0;
     }
-
     nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
       margin-top: 10px;
     }
-
     nav a {
       color: #fff;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
       font-size: 1.1rem;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: color 0.3s ease, background-color 0.3s ease;
     }
-
     nav a.active,
     nav a:hover {
       color: #ffeb3b;
+      background-color: rgba(255 235 59 / 0.15);
     }
-
-    .portfolio-section {
-      margin-top: 40px;
+    main {
+      margin: 40px auto 80px;
+      max-width: 900px;
     }
-
-    .project {
-      background: white;
+    h2 {
+      text-align: center;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+    .intro-text {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      font-size: 1.1rem;
+      text-align: center;
+      color: var(--text-color);
+    }
+    .tools-expertise {
+      max-width: 700px;
+      margin: 0 auto 60px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      text-align: center;
+    }
+    .tool-card {
+      background: #fff;
       border: 2px solid var(--accent-color);
       border-radius: 12px;
       padding: 20px;
-      margin-bottom: 20px;
+      width: 180px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      font-weight: 600;
+      color: var(--accent-color);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .project:hover {
+    .tool-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     }
-
-    .project h3 {
-      margin-bottom: 10px;
+    .social-links {
+      text-align: center;
+      margin: 50px 0 20px;
+    }
+    .social-links h2 {
       color: var(--accent-color);
+      margin-bottom: 20px;
     }
-
-    .project p {
-      margin-bottom: 10px;
-    }
-
-    .explore-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      margin: 40px 0;
-    }
-
-    .explore-card {
-      background: white;
-      border: 2px solid var(--accent-color);
-      border-radius: 12px;
-      width: 280px;
-      height: 180px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      font-weight: bold;
+    .social-links a {
+      display: inline-block;
+      margin: 0 15px;
       color: var(--accent-color);
-      text-decoration: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
     }
-
-    .explore-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    .social-links a:hover {
+      color: var(--hover-accent);
     }
-
-    .explore-card i {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .extra-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      margin: 40px 0;
-    }
-
-    .btn-link {
-      text-decoration: none;
-      background-color: var(--accent-color);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-      font-weight: 500;
-    }
-
-    .btn-link:hover {
-      background-color: var(--hover-accent);
-    }
-
     footer {
       text-align: center;
       background: #222;
       color: #fff;
-      padding: 15px;
+      padding: 15px 0;
+      font-size: 0.9rem;
       margin-top: 60px;
       border-radius: 12px 12px 0 0;
+    }
+    @media (max-width: 600px) {
+      .tools-expertise {
+        gap: 15px;
+      }
+      .tool-card {
+        width: 140px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -158,57 +141,47 @@
   <header>
     <h1>My Portfolio</h1>
     <nav>
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="bio.html">Bio</a>
-      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="portfolio.html">Portfolio</a>
       <a href="elevator.html">Elevator Pitch</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="portfolio-section">
-    <div class="project">
-      <h3>ALX Data Science Program</h3>
-      <p>Completed practical data-driven projects using Python, Pandas, Numpy, and visualization libraries.</p>
-    </div>
-    <div class="project">
-      <h3>AWS Deployment</h3>
-      <p>Provisioned and managed Windows servers on AWS EC2 with RDP, used SSH and Linux tools to run Windows applications.</p>
-    </div>
-    <div class="project">
-      <h3>Cybersecurity Hands-on Labs</h3>
-      <p>Simulated real-world attacks, practiced system hardening, log monitoring, and secure network configurations.</p>
-    </div>
+  <main>
+    <section class="intro-text">
+      <h2>Welcome! I’m Oluwatobi Abass</h2>
+      <p>
+        An aspiring Cloud and Cybersecurity Specialist with a growing passion for Data Science.
+        Currently enrolled in the ALX Software Engineering Program, I build secure, resilient, and innovative digital solutions
+        driven by curiosity and resourcefulness.
+      </p>
+    </section>
 
-    <!-- Explore Cards Section -->
-    <div class="explore-links">
-      <a href="portfolio.html" class="explore-card">
-        <i class="fas fa-briefcase"></i>
-        Explore My Projects
-      </a>
-      <a href="https://datascienceportfol.io/abasstobi6" target="_blank" class="explore-card">
-        <i class="fas fa-chart-line"></i>
-        My Data Science Portfolio
-      </a>
-      <a href="contact.html" class="explore-card">
-        <i class="fas fa-envelope"></i>
-        Contact Me
-      </a>
-    </div>
+    <section class="tools-expertise">
+      <div class="tool-card">Python & Data Analysis</div>
+      <div class="tool-card">AWS Cloud Deployment</div>
+      <div class="tool-card">Cybersecurity Labs</div>
+      <div class="tool-card">API Development</div>
+      <div class="tool-card">Linux & Windows Systems</div>
+      <div class="tool-card">Data Visualization</div>
+      <div class="tool-card">Java Programming</div>
+      <div class="tool-card">QuickBooks</div>
+      <div class="tool-card">Database Management</div>
+    </section>
 
-    <!-- Additional Link Buttons Before Footer -->
-    <div class="extra-links">
-      <a href="https://datascienceportfol.io/abasstobi6" target="_blank" class="btn-link">
-        Explore Full Data Science Portfolio
-      </a>
-      <a href="contact.html" class="btn-link">
-        Get in Touch
-      </a>
-    </div>
+    <section class="social-links">
+      <h2>Connect with Me</h2>
+      <a href="mailto:abasstobi6@gmail.com" target="_blank" rel="noopener"><i class="fas fa-envelope"></i></a>
+      <a href="https://x.com/KoreaNotKorean" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/continuetotreasure" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/oluwatobi-abass-056684312" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+    </section>
   </main>
 
   <footer>
-    &copy; 2025 Tobi Abass | Built with GitHub Pages
+    &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
   </footer>
 </body>
 </html>
