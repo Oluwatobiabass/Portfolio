@@ -63,18 +63,59 @@
       margin: 40px auto 80px;
       max-width: 900px;
     }
-    h2 {
-      text-align: center;
-      color: var(--accent-color);
-      margin-bottom: 15px;
-    }
-    .intro-text {
+
+    /* Intro with photo */
+    .intro-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
       max-width: 700px;
       margin: 0 auto 50px;
-      font-size: 1.1rem;
-      text-align: center;
+      text-align: left;
       color: var(--text-color);
     }
+
+    .intro-photo {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .intro-photo:hover {
+      transform: scale(1.05);
+    }
+
+    .intro-copy h2 {
+      margin-top: 0;
+      margin-bottom: 0.4em;
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .intro-copy p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    /* Responsive: stack on small screens */
+    @media (max-width: 600px) {
+      .intro-wrapper {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .intro-photo {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
     .tools-expertise {
       max-width: 700px;
       margin: 0 auto 20px;
@@ -208,12 +249,17 @@
 
   <main>
     <section class="intro-text">
-      <h2>Welcome! I’m Oluwatobi Abass</h2>
-      <p>
-        An aspiring Cloud and Cybersecurity Specialist with a growing passion for Data Science.
-        Currently enrolled in the ALX Software Engineering Program, I build secure, resilient, and innovative digital solutions
-        driven by curiosity and resourcefulness.
-      </p>
+      <div class="intro-wrapper">
+        <img src="images/Oluwatobi-Abass-Photo.jpg" alt="Photo of Oluwatobi Abass" class="intro-photo" />
+        <div class="intro-copy">
+          <h2>Welcome! I’m Oluwatobi Abass</h2>
+          <p>
+            An aspiring Cloud and Cybersecurity Specialist with a growing passion for Data Science.
+            Currently enrolled in the ALX Software Engineering Program, I build secure, resilient, and innovative digital solutions
+            driven by curiosity and resourcefulness.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="tools-expertise">
@@ -264,12 +310,10 @@
       "Database Management": "Design, implement, and maintain efficient database systems."
     };
 
-    // Remove active class from all cards
     function clearActive() {
       toolCards.forEach(card => card.classList.remove('active'));
     }
 
-    // Show info box with description
     function showInfo(text) {
       infoText.textContent = text;
       infoBox.classList.add('show');
@@ -277,7 +321,6 @@
       infoBox.scrollIntoView({behavior: 'smooth', block: 'center'});
     }
 
-    // Hide info box
     function hideInfo() {
       infoBox.classList.remove('show');
       clearActive();
@@ -300,7 +343,6 @@
 
     closeBtn.addEventListener('click', hideInfo);
 
-    // Optional: hide info box if clicked outside of it or cards
     document.addEventListener('click', (e) => {
       if (!infoBox.contains(e.target) && ![...toolCards].some(card => card.contains(e.target))) {
         hideInfo();
