@@ -48,7 +48,7 @@
 
     main {
       max-width: 900px;
-      margin: 40px auto 80px; /* added bottom margin for spacing before footer */
+      margin: 40px auto 80px;
       padding: 0 20px;
     }
 
@@ -81,7 +81,7 @@
       border-radius: 12px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       text-align: center;
-      opacity: 1 !important; /* override fade-in animation for slider */
+      opacity: 1 !important;
       transform: none !important;
     }
 
@@ -113,7 +113,7 @@
 
     .embed-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 ratio */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       max-width: 100%;
@@ -180,6 +180,43 @@
       color: #0097a7;
     }
 
+    /* New Explore Cards Section */
+    .explore-cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 50px 0;
+      flex-wrap: wrap;
+    }
+
+    .explore-card {
+      background: #fff;
+      border: 2px solid var(--accent-color);
+      border-radius: 12px;
+      width: 280px;
+      height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
+      font-weight: 700;
+      font-size: 1.25rem;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .explore-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .explore-card i {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
     footer {
       text-align: center;
       background: #222;
@@ -190,11 +227,16 @@
       border-radius: 12px 12px 0 0;
     }
 
-    /* Responsive tweaks */
-    @media (max-width: 600px) {
-      .slider-btn {
-        font-size: 1.2rem;
-        padding: 8px 12px;
+    @media (max-width: 650px) {
+      .explore-cards {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+      .explore-card {
+        width: 90%;
+        height: 140px;
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -263,6 +305,19 @@
         </div>
         <button class="slider-btn next" aria-label="Next project"><i class="fas fa-chevron-right"></i></button>
       </div>
+
+      <!-- NEW: Explore Portfolio and Contact Cards -->
+      <div class="explore-cards">
+        <a href="https://datascienceportfol.io/abasstobi6" target="_blank" class="explore-card" aria-label="Explore my data science portfolio">
+          <i class="fas fa-chart-line"></i>
+          Explore My Portfolio
+        </a>
+        <a href="contact.html" class="explore-card" aria-label="Contact me">
+          <i class="fas fa-envelope"></i>
+          Contact Me
+        </a>
+      </div>
+
     </section>
 
     <section class="social-links">
@@ -285,19 +340,29 @@
     const nextBtn = document.querySelector('.slider-btn.next');
 
     let currentIndex = 0;
+    let isSliding = false;
 
     function updateSlider() {
+      isSliding = true;
       slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+      setTimeout(() => { isSliding = false; }, 500);
     }
 
     prevBtn.addEventListener('click', () => {
+      if (isSliding) return;
       currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
       updateSlider();
     });
 
     nextBtn.addEventListener('click', () => {
+      if (isSliding) return;
       currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
       updateSlider();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'ArrowRight') nextBtn.click();
     });
   </script>
 </body>
