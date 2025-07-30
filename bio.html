@@ -4,27 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bio | Oluwatobi Abass</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     :root {
       --accent-color: #00bcd4;
       --hover-accent: #0097a7;
       --text-color: #333;
       --background-color: #f9f9f9;
-      --font-family: 'Arial', sans-serif;
+      --font-family: 'Poppins', sans-serif;
     }
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: var(--font-family);
       background: var(--background-color);
       color: var(--text-color);
       line-height: 1.6;
       max-width: 900px;
-      margin: auto;
-      padding: 20px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
     }
+
     header {
       background: var(--accent-color);
       color: #fff;
@@ -32,12 +38,13 @@
       text-align: center;
       border-radius: 0 0 12px 12px;
     }
-    header h1 {
-      font-size: 2rem;
-    }
+
+    header h1 { font-size: 2rem; margin-bottom: 10px; }
+
     nav {
       margin-top: 10px;
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
@@ -46,244 +53,222 @@
       font-size: 1.1rem;
       transition: color 0.3s ease;
     }
-    nav a.active, nav a:hover {
+
+    nav a.active,
+    nav a:hover {
       color: #ffeb3b;
     }
-    main {
-      margin-top: 30px;
-    }
 
-    .profile-image {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .profile-image img {
-      width: 160px;
-      height: 160px;
+    .profile-img {
+      display: block;
+      max-width: 160px;
+      margin: 30px auto;
       border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--accent-color);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     }
 
-    .bio-info {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .bio-info h2 {
-      color: var(--accent-color);
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    .bio-info p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    /* Flip card section */
-    .card-section {
-      background: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      animation: fadeInUp 0.8s ease forwards;
-      opacity: 0;
-    }
-
-    .section-title {
-      text-align: center;
-      color: var(--accent-color);
-      font-size: 1.5rem;
-      margin-bottom: 25px;
-    }
-
-    .card-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .card {
+    .flip-card {
       background: transparent;
-      width: 140px;
-      height: 140px;
+      width: 100%;
+      max-width: 800px;
+      height: 180px;
       perspective: 1000px;
+      margin: 20px auto;
       cursor: pointer;
+      border-radius: 12px;
     }
 
-    .card-inner {
+    .flip-card-inner {
       position: relative;
       width: 100%;
       height: 100%;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.6s ease;
       transform-style: preserve-3d;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 25px;
     }
 
-    .card:hover .card-inner,
-    .card:focus-within .card-inner {
+    .flip-card.flipped .flip-card-inner {
       transform: rotateY(180deg);
     }
 
-    .card-front, .card-back {
+    .flip-card-front, .flip-card-back {
       position: absolute;
       width: 100%;
       height: 100%;
-      border-radius: 12px;
       backface-visibility: hidden;
+      border-radius: 12px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      color: white;
-      padding: 15px;
-      font-weight: 600;
-      font-size: 1rem;
+      justify-content: center;
+      padding: 0 20px;
     }
 
-    .card-front {
-      background-color: var(--accent-color);
+    .flip-card-front {
+      color: var(--accent-color);
+      font-weight: 700;
+      font-size: 1.3rem;
+      border: 2px solid var(--accent-color);
+      background: white;
     }
 
-    .card-front i {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    .card-back {
-      background-color: var(--hover-accent);
+    .flip-card-back {
+      color: #444;
       transform: rotateY(180deg);
-      font-size: 0.9rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border: 2px solid var(--accent-color);
+      background: white;
       text-align: center;
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
+    .social-links {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .social-links a {
+      margin: 0 15px;
+      color: var(--accent-color);
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      color: var(--hover-accent);
     }
 
     footer {
       text-align: center;
-      margin-top: 50px;
-      padding: 20px 0;
-      border-top: 1px solid #ddd;
-    }
-
-    .social-icons {
-      margin-bottom: 10px;
-    }
-
-    .social-icons a {
-      color: var(--accent-color);
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: var(--hover-accent);
+      background: #222;
+      color: #fff;
+      padding: 15px 0;
+      font-size: 0.9rem;
+      margin-top: 40px;
+      border-radius: 12px 12px 0 0;
     }
 
     @media (max-width: 600px) {
-      .card-grid {
-        flex-direction: column;
-        align-items: center;
+      .flip-card {
+        height: 220px;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Oluwatobi Abass</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="bio.html" class="active">Bio</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="elevator.html">Elevator Pitch</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h1>My Bio</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="bio.html" class="active">Bio</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="elevator.html">Elevator Pitch</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-  <main>
-    <div class="profile-image">
-      <img src="profile.jpg" alt="Oluwatobi Abass" />
-    </div>
-    <div class="bio-info">
-      <h2>About Me</h2>
-      <p>I am a passionate Cloud and Cybersecurity Specialist with a strong foundation in software engineering and data science. I enjoy solving complex problems and building systems that are secure, scalable, and efficient.</p>
-    </div>
+<main>
 
-    <section class="card-section">
-      <h3 class="section-title">Skills Overview</h3>
-      <div class="card-grid">
-        <div class="card" tabindex="0">
-          <div class="card-inner">
-            <div class="card-front">
-              <i class="fab fa-python"></i>
-              Python
-            </div>
-            <div class="card-back">
-              Data analysis, scripting, and automation with Python.
-            </div>
-          </div>
-        </div>
-        <div class="card" tabindex="0">
-          <div class="card-inner">
-            <div class="card-front">
-              <i class="fab fa-aws"></i>
-              AWS
-            </div>
-            <div class="card-back">
-              Scalable infrastructure using EC2, S3, and Lambda.
-            </div>
-          </div>
-        </div>
-        <div class="card" tabindex="0">
-          <div class="card-inner">
-            <div class="card-front">
-              <i class="fas fa-lock"></i>
-              Security
-            </div>
-            <div class="card-back">
-              Network protection and vulnerability assessments.
-            </div>
-          </div>
-        </div>
-        <div class="card" tabindex="0">
-          <div class="card-inner">
-            <div class="card-front">
-              <i class="fab fa-linux"></i>
-              Linux
-            </div>
-            <div class="card-back">
-              Server management and shell scripting.
-            </div>
-          </div>
-        </div>
+  <img src="images/Oluwatobi-Abass-Photo.jpg" alt="Photo of Oluwatobi Abass" class="profile-img" />
+
+  <!-- Flip cards: Bio content only -->
+  <div class="flip-card" tabindex="0">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">Who I Am</div>
+      <div class="flip-card-back">
+        I’m an aspiring <strong>Cloud and Cybersecurity Specialist</strong> with a growing passion for data science. Currently enrolled in the <strong>ALX Software Engineering Program</strong>, I build secure, resilient, and innovative digital solutions.
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="social-icons">
-      <a href="https://github.com/abasstobi6" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/abasstobi6" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:abasstobi6@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
-    <p>&copy; 2025 Oluwatobi Abass</p>
-  </footer>
+  </div>
+
+  <div class="flip-card" tabindex="0">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">What Makes Me Unique</div>
+      <div class="flip-card-back">
+        I blend cloud tech, cybersecurity, and data insights with a problem-solving mindset. I adapt quickly, learn continuously, and create value with every project.
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card" tabindex="0">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">My Passion</div>
+      <div class="flip-card-back">
+        Technology is my tool to solve real-world problems. Cloud engineering scales systems, cybersecurity safeguards, and data science uncovers stories hidden in numbers.
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card" tabindex="0">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">How My Work Enables My Passion</div>
+      <div class="flip-card-back">
+        I’ve deployed and managed Windows instances on AWS EC2, configured RDP connections, run Windows apps on Linux cloud hosts, and completed secure system administration projects.
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card" tabindex="0">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">Goals and Aspirations</div>
+      <div class="flip-card-back">
+        My goal is to complete the ALX program, earn certifications like CCNA, and gain internships to build secure infrastructures addressing Africa’s digital challenges.
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card" tabindex="0">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">Personal Reflection</div>
+      <div class="flip-card-back">
+        I’ve faced imposter syndrome but learned to focus on effort and growth, recognizing every step forward as part of my success journey.
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card" tabindex="0">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">Core Strengths</div>
+      <div class="flip-card-back">
+        Resourceful, adaptive, and committed to improvement. My curiosity and discipline help me learn new tech and innovate in challenges.
+      </div>
+    </div>
+  </div>
+
+  <!-- Social media -->
+  <section class="social-links">
+    <a href="mailto:abasstobi6@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+    <a href="https://x.com/KoreaNotKorean" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://www.instagram.com/continuetotreasure" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/oluwatobi-abass-056684312" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
+</footer>
+
+<script>
+  document.querySelectorAll('.flip-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+    });
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
