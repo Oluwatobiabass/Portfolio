@@ -3,300 +3,303 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Portfolio | Oluwatobi Abass</title>
+<title>Home | Oluwatobi Abass</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
   :root {
     --accent-color: #00bcd4;
+    --hover-accent: #0097a7;
+    --text-color: #333;
+    --background-color: #f9f9f9;
+    --font-family: 'Arial', sans-serif;
   }
-
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
   body {
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    color: #333;
+    font-family: var(--font-family);
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
   }
-
   header {
     background: var(--accent-color);
+    color: #fff;
     padding: 20px;
     text-align: center;
-    color: #fff;
+    border-radius: 0 0 12px 12px;
   }
-
   header h1 {
-    margin: 0;
+    font-size: 2rem;
   }
-
   nav {
     margin-top: 10px;
+    text-align: center;
   }
-
   nav a {
     color: #fff;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 15px;
     font-weight: bold;
+    font-size: 1.1rem;
     transition: color 0.3s ease;
   }
-
   nav a.active,
   nav a:hover {
     color: #ffeb3b;
   }
-
   main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin-top: 40px;
   }
-
-  h2 {
-    text-align: center;
-    color: var(--accent-color);
-    margin-bottom: 30px;
-  }
-
-  /* Slider container */
-  .slider {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 60px;
-  }
-
-  /* Container holding the cards horizontally */
-  .slides-container {
-    display: flex;
-    gap: 30px;
-    scroll-behavior: smooth;
-    overflow-x: auto;
-    padding-bottom: 10px;
-  }
-
-  /* Hide scrollbar but keep functionality */
-  .slides-container::-webkit-scrollbar {
-    display: none;
-  }
-  .slides-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  /* Project card styles with fade-in */
-  .project-card {
+  section.expertise {
     background: #fff;
-    padding: 25px;
+    padding: 30px;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    flex: 0 0 280px; /* fixed width for stacked cards */
+    animation: fadeInUp 0.8s ease forwards;
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  h2.section-title {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  p.description {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: 1.1rem;
     text-align: center;
   }
 
-  .project-card.visible {
-    opacity: 1;
-    transform: translateY(0);
+  /* Flip card container */
+  .tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
   }
 
-  .project-card h3 {
-    margin-bottom: 15px;
-    color: var(--accent-color);
+  .tool-card {
+    background: transparent;
+    width: 140px;
+    height: 140px;
+    perspective: 1000px;
+    cursor: pointer;
   }
 
-  .project-card p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-    line-height: 1.6;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: var(--accent-color);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn:hover {
-    background-color: #0097a7;
-  }
-
-  .embed-container {
+  .tool-inner {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 ratio */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    border-radius: 10px;
-    margin: 20px 0;
-  }
-
-  .embed-container iframe {
-    position: absolute;
-    top: 0; left: 0;
     width: 100%;
     height: 100%;
-    border: 0;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
   }
 
-  /* Slider buttons */
-  .slider-btn {
+  .tool-card:hover .tool-inner,
+  .tool-card:focus-within .tool-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* Front and back faces */
+  .tool-front, .tool-back {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .tool-front {
     background-color: var(--accent-color);
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    z-index: 10;
   }
 
-  .slider-btn:hover {
-    background-color: #0097a7;
+  .tool-front i {
+    font-size: 3rem;
+    margin-bottom: 10px;
   }
 
-  .slider-btn.prev {
-    left: 10px;
+  .tool-back {
+    background-color: var(--hover-accent);
+    transform: rotateY(180deg);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 20px;
+    line-height: 1.3;
   }
 
-  .slider-btn.next {
-    right: 10px;
+  /* Fade in animation */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
   }
 
   /* Responsive */
   @media (max-width: 600px) {
-    .project-card {
-      flex: 0 0 80vw; /* nearly full width on small screens */
+    .tools-list {
+      flex-direction: column;
+      align-items: center;
     }
-    .slider-btn {
-      font-size: 1.2rem;
-      padding: 8px 12px;
+    .tool-card {
+      width: 180px;
+      height: 180px;
     }
   }
 </style>
 </head>
 <body>
+
 <header>
-  <h1>My Portfolio</h1>
+  <h1>Oluwatobi Abass</h1>
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="bio.html">Bio</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="portfolio.html">Portfolio</a>
     <a href="elevator.html">Elevator Pitch</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <main>
-  <section>
-    <h2>Projects & Contributions</h2>
-    <p style="text-align:center; max-width:600px; margin:auto 0 40px;">
-      Here are some highlighted projects showcasing my expertise in <strong>cloud engineering</strong>, <strong>data science</strong>, and <strong>API development</strong>.
+  <section class="expertise" tabindex="0" aria-label="Expertise and Tools I Use">
+    <h2 class="section-title">My Expertise & Tools I Use</h2>
+    <p class="description">
+      I am a Cloud and Cybersecurity Specialist with strong experience in data science and software engineering. I build secure, scalable systems and manage cloud environments using cutting-edge tools.
     </p>
-
-    <div class="slider">
-      <button class="slider-btn prev" aria-label="Previous projects"><i class="fas fa-chevron-left"></i></button>
-      <div class="slides-container">
-        <div class="project-card">
-          <h3>UPS API Shipping App</h3>
-          <p>A cloud-integrated API application built using AWS developer tools to streamline shipping operations.</p>
-          <div class="embed-container">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vROfT2ZHumlAwqkkY8DxgBRyA4xatjEbL79s6koZBnmc9v8JW-9TenZxbT_dW9FT35ooQhzJRFjEe8b/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
+    <ul class="tools-list" aria-label="List of tools and technologies I use">
+      <li class="tool-card" tabindex="0">
+        <div class="tool-inner">
+          <div class="tool-front">
+            <i class="fab fa-github" aria-hidden="true"></i>
+            GitHub
           </div>
-          <a href="https://github.com/YourGitHubUsername/ups-api-shipping" class="btn" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project-card">
-          <h3>Cloud Systems Management</h3>
-          <p>Hands-on experience managing and automating Windows environments using AWS EC2 and RDP configurations.</p>
-          <div class="embed-container">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRhE-r4VxoC_W9y4p7wrN_0fWGVv00dS5t4oeBE1UuHqO0-YXzotKwqhbP2TzdzctgQQO4tSyMtLXQV/pubembed?start=false&loop=false&delayms=3000" allowfullscreen></iframe>
-          </div>
-          <a href="https://github.com/YourGitHubUsername/cloud-systems" class="btn" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project-card">
-          <h3>Data Science Projects</h3>
-          <p>Data interpretation and visualization projects focused on uncovering actionable insights from datasets.</p>
-          <div class="embed-container">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vS3W41T6l9khqqF4vmyTxBG2dhRF4fOB75oHoHzyrew7XPPPo-Ref7BLYVSQoHK4miSn8wmsmuY6nx0/pubembed?start=true&loop=false&delayms=3000" allowfullscreen></iframe>
-          </div>
-          <a href="https://github.com/YourGitHubUsername/data-science-projects" class="btn" target="_blank">Explore on GitHub</a>
-        </div>
-        <div class="project-card">
-          <h3>Team Presentation Contribution</h3>
-          <p>Contributed to team-based presentation projects showcasing problem-solving and strategic planning.</p>
-          <div class="embed-container">
-            <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSO6e-avqKc6_7wzArRjYCcXwYxG3RHdyGJ_jE4luvft7Yj7XspEvETPXtB-wcLoiIzLaNYXuvCY_9b/pubembed?start=false&loop=true&delayms=3000" allowfullscreen></iframe>
-          </div>
-          <a href="https://github.com/YourGitHubUsername/team-projects" class="btn" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project-card">
-          <h3>Wireframe & Design Prototype</h3>
-          <p>Created and designed a wireframe prototype using Miro to visualize application workflows and UX planning.</p>
-          <div class="embed-container">
-            <iframe src="https://miro.com/app/live-embed/uXjVImLQDbY=/?embedMode=view_only_without_ui&moveToViewport=-5635,12,5193,2349&embedId=612545126388" allowfullscreen></iframe>
+          <div class="tool-back" aria-hidden="true">
+            Version control, collaboration, and CI/CD pipelines for software projects.
           </div>
         </div>
-      </div>
-      <button class="slider-btn next" aria-label="Next projects"><i class="fas fa-chevron-right"></i></button>
-    </div>
+      </li>
+      <li class="tool-card" tabindex="0">
+        <div class="tool-inner">
+          <div class="tool-front">
+            <i class="fab fa-aws" aria-hidden="true"></i>
+            AWS
+          </div>
+          <div class="tool-back" aria-hidden="true">
+            Cloud services like EC2, S3, Lambda for scalable infrastructure and automation.
+          </div>
+        </div>
+      </li>
+      <li class="tool-card" tabindex="0">
+        <div class="tool-inner">
+          <div class="tool-front">
+            <i class="fas fa-lock" aria-hidden="true"></i>
+            Cybersecurity
+          </div>
+          <div class="tool-back" aria-hidden="true">
+            Security protocols, vulnerability assessments, and network protection.
+          </div>
+        </div>
+      </li>
+      <li class="tool-card" tabindex="0">
+        <div class="tool-inner">
+          <div class="tool-front">
+            <i class="fas fa-database" aria-hidden="true"></i>
+            Databases
+          </div>
+          <div class="tool-back" aria-hidden="true">
+            Working knowledge of MySQL, MongoDB for efficient data management.
+          </div>
+        </div>
+      </li>
+      <li class="tool-card" tabindex="0">
+        <div class="tool-inner">
+          <div class="tool-front">
+            <i class="fab fa-python" aria-hidden="true"></i>
+            Python
+          </div>
+          <div class="tool-back" aria-hidden="true">
+            Data analysis, scripting, automation, and backend development.
+          </div>
+        </div>
+      </li>
+      <li class="tool-card" tabindex="0">
+        <div class="tool-inner">
+          <div class="tool-front">
+            <i class="fas fa-network-wired" aria-hidden="true"></i>
+            Networking
+          </div>
+          <div class="tool-back" aria-hidden="true">
+            Networking fundamentals and Cisco CCNA certifications.
+          </div>
+        </div>
+      </li>
+      <li class="tool-card" tabindex="0">
+        <div class="tool-inner">
+          <div class="tool-front">
+            <i class="fab fa-linux" aria-hidden="true"></i>
+            Linux
+          </div>
+          <div class="tool-back" aria-hidden="true">
+            Linux system administration and shell scripting.
+          </div>
+        </div>
+      </li>
+      <li class="tool-card" tabindex="0">
+        <div class="tool-inner">
+          <div class="tool-front">
+            <i class="fas fa-code" aria-hidden="true"></i>
+            APIs
+          </div>
+          <div class="tool-back" aria-hidden="true">
+            Designing and consuming RESTful APIs for integrations.
+          </div>
+        </div>
+      </li>
+      <li class="tool-card" tabindex="0">
+        <div class="tool-inner">
+          <div class="tool-front">
+            <i class="fab fa-docker" aria-hidden="true"></i>
+            Docker
+          </div>
+          <div class="tool-back" aria-hidden="true">
+            Containerization and environment management.
+          </div>
+        </div>
+      </li>
+      <li class="tool-card" tabindex="0">
+        <div class="tool-inner">
+          <div class="tool-front">
+            <i class="fas fa-cloud" aria-hidden="true"></i>
+            Cloud Infrastructure
+          </div>
+          <div class="tool-back" aria-hidden="true">
+            Designing and maintaining cloud-based scalable infrastructure.
+          </div>
+        </div>
+      </li>
+    </ul>
   </section>
 </main>
 
-<footer>
-  &copy; 2025 Oluwatobi Abass | Built with GitHub Pages
-</footer>
-
-<script>
-  // Fade-in animation on scroll
-  const cards = document.querySelectorAll('.project-card');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  cards.forEach(card => observer.observe(card));
-
-  // Slider scroll by card width + gap
-  const slidesContainer = document.querySelector('.slides-container');
-  const prevBtn = document.querySelector('.slider-btn.prev');
-  const nextBtn = document.querySelector('.slider-btn.next');
-
-  // Get width of one card + gap
-  function getScrollAmount() {
-    const cardStyle = getComputedStyle(cards[0]);
-    const cardWidth = cards[0].offsetWidth;
-    const gap = parseInt(cardStyle.marginRight) || 30; // fallback to 30 if marginRight undefined
-    return cardWidth + gap;
-  }
-
-  prevBtn.addEventListener('click', () => {
-    slidesContainer.scrollBy({
-      left: -getScrollAmount(),
-      behavior: 'smooth'
-    });
-  });
-
-  nextBtn.addEventListener('click', () => {
-    slidesContainer.scrollBy({
-      left: getScrollAmount(),
-      behavior: 'smooth'
-    });
-  });
-</script>
 </body>
 </html>
