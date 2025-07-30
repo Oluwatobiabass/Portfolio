@@ -4,16 +4,135 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home | Oluwatobi Abass</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    .card {
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f9fb;
+      color: #333;
+    }
+
+    header {
+      background-color: #00bcd4;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    .about {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* Book Flip Card Styles */
+    .book-wrapper {
+      perspective: 1200px;
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .book {
+      width: 100%;
+      max-width: 600px;
+      min-height: 320px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
+      cursor: pointer;
+    }
+
+    .book-front, .book-back {
       background: #fff;
       border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 20px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      position: absolute;
+      width: 100%;
+      backface-visibility: hidden;
+      min-height: 320px;
+      box-sizing: border-box;
+    }
+
+    .book-front {
+      z-index: 2;
+      transform: rotateY(0deg);
+    }
+
+    .book-back {
+      transform: rotateY(180deg);
+    }
+
+    .book:hover {
+      transform: rotateY(180deg);
+    }
+
+    .btn {
+      margin: 10px;
+      padding: 10px 18px;
+      background-color: #00bcd4;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    footer {
+      background-color: #222;
+      color: #ccc;
       text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      color: #00bcd4;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 600px) {
+      .book-front, .book-back {
+        padding: 20px;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
@@ -31,29 +150,38 @@
 
   <main>
     <section class="about">
-      <img src="images/Oluwatobi-Abass-Photo.jpg" alt="Oluwatobi Abass" class="profile-img">
+      <img src="images/Oluwatobi-Abass-Photo.jpg" alt="Profile Photo" class="profile-img">
+      <h2>Turning Data Into Meaning</h2>
 
-      <h2>Hello, I'm Oluwatobi Abass</h2>
+      <div class="book-wrapper">
+        <div class="book">
+          <div class="book-front">
+            <h3>Click to Open</h3>
+            <p>See how I turn raw data into real impact.</p>
+          </div>
+          <div class="book-back">
+            <p>
+              Turning raw data into meaningful visuals, actionable insights, and secure systems.  
+              I bring technology and storytelling together—one solution at a time.  
+              I’m a passionate <strong>Cloud & Cybersecurity Enthusiast</strong> and aspiring <strong>Data Scientist</strong>.  
+              With hands-on experience in <strong>AWS EC2</strong> management, <strong>data visualization</strong>,  
+              and <strong>system automation</strong>, I build solutions that combine  
+              technology, security, and data insights.
+            </p>
 
-      <div class="card">
-        <p>
-          I’m a passionate <strong>Cloud & Cybersecurity Enthusiast</strong> and aspiring <strong>Data Scientist</strong>.
-          With hands-on experience in <strong>AWS EC2</strong> management, <strong>data visualization</strong>, 
-          and <strong>system automation</strong>, I build solutions that combine 
-          technology, security, and data insights.
-        </p>
+            <h3>Career Highlights</h3>
+            <ul>
+              <li>Deployed and automated cloud environments using AWS EC2 and RDP.</li>
+              <li>Developed data visualization projects to uncover actionable insights.</li>
+              <li>Exploring cybersecurity strategies like system hardening and threat detection.</li>
+            </ul>
 
-        <h3>Career Highlights</h3>
-        <ul>
-          <li>Deployed and automated cloud environments using AWS EC2 and RDP.</li>
-          <li>Developed data visualization projects to uncover actionable insights.</li>
-          <li>Exploring cybersecurity strategies like system hardening and threat detection.</li>
-        </ul>
-
-        <p>
-          <a href="https://datascienceportfol.io/abasstobi6" target="_blank" class="btn">Explore My Portfolio</a>
-          <a href="contact.html" class="btn">Get in Touch</a>
-        </p>
+            <p>
+              <a href="https://datascienceportfol.io/abasstobi6" target="_blank" class="btn">Explore My Portfolio</a>
+              <a href="contact.html" class="btn">Get in Touch</a>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
